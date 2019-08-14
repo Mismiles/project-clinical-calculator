@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="js/formcalculations.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style type="text/css" src="css/stylesheet.css"></style>
+    
+    <title>Vancomycin calculation tool</title>
+    
+  
+  </head>
+  <body>
+
+<form id="vanc">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Vancomycin prescribing tool</legend>
+
+<!-- Resource -->
+<br>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="resource">Resource</label>
+  <div class="col-md-4">
+    <select id="resource" name="resource" class="form-control">
+      <option value="1">Micro advice</option>
+      <option value="2">Hospital guideline</option>
+      <option value="">Microguide</option>
+    </select>
+  </div>
+</div>
+
+<!-- Indication-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="indication">Indication</label>  
+  <div class="col-md-4">
+  <input id="indication" name="indication" type="text" placeholder="Specify" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Gender -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="gender">Gender</label>
+  <div class="col-md-4">
+    <select id="gender" name="gender" class="form-control">
+      <option value="1">Male</option>
+      <option value="2">Female</option>
+    </select>
+  </div>
+</div>
+
+<!-- Age-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="age">Age</label>  
+  <div class="col-md-4">
+  <input id="age" name="age" type="text" placeholder="Age in years" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Weightt-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="weight">Weight </label>  
+  <div class="col-md-4">
+  <input id="weight" name="weight" type="text" placeholder="Weight in kg" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Date picker-->
+<div class="form-group">
+	<label class="col-md-4 control-label" for="datetimepicker-default">Date weight taken</label>
+	<div class="col-md-4">
+	<input id="date" name="datetimepicker-default" placeholder="select date" class="form-control input-md" required="">
+    </div>
+</div>
+
+<!-- Parameters -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="parameters">Contact Pharmacy if any apply, as estimate may be inaccurate</label>
+  <div class="col-md-4">
+  <div class="checkbox">
+    <label for="parameters-0">
+      <input type="checkbox" name="parameters" id="parameters-0" value="1">
+      Overweight (BMI &gt; 25)
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-1">
+      <input type="checkbox" name="parameters" id="parameters-1" value="">
+      Underweight (BMI &lt; 18.5)
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-2">
+      <input type="checkbox" name="parameters" id="parameters-2" value="">
+      Amputee
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-3">
+      <input type="checkbox" name="parameters" id="parameters-3" value="">
+      Pregnant
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-4">
+      <input type="checkbox" name="parameters" id="parameters-4" value="">
+      Paraplegia or quadriplegia
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-5">
+      <input type="checkbox" name="parameters" id="parameters-5" value="">
+      Rapidly changing kidney function
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-6">
+      <input type="checkbox" name="parameters" id="parameters-6" value="">
+      NONE of the ABOVE apply
+    </label>
+	</div>
+  </div>
+</div>
+
+<!-- Creatinine-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="creatinine">Serum Creatinine in µmol/L</label>  
+  <div class="col-md-4">
+  <input id="creatinine" name="creatinine" type="text" placeholder="Creatinine" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="calculate"></label>
+  <div class="col-md-4">
+    <button id="calculate" name="calculate" class="btn btn-primary" onClick="javascript:validate();">Display dose and monitoring advice</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<p id="output_text"/>
+    
+  </body>
+</html>
+
