@@ -1,4 +1,4 @@
-<script>
+
         var gender, age, weight, creatinine;
         var outputText;
         
@@ -20,12 +20,11 @@
             } else if (isNaN(creatinine)) {
                 outputText = "<em>Creatinine</em> must be a number!";
             } else {
-                // calculate the result using x = (-b +- sqrt(b^2 - 4ac)) / 2a
+                // calculate the result using ((140-age)*weight)/creatinine 
                 var CrCl = ((140-age)*weight)/creatinine;
-                outputText = "The creatinine clearence = <strong>" + CrCl "</strong>";
+                outputText = "The creatinine clearence = CrCl;
             }
             
             // output the result (or errors)
             document.getElementById("output_text").innerHTML = outputText;
         }
-    </script>
