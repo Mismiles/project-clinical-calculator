@@ -1,8 +1,11 @@
 body {
     position: relative;
-    
 }
 
 legend {
     padding-left: 30px;
+}
+.carousel {
+  width:740px;
+  height:860px;
 }

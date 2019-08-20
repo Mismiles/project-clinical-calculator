@@ -21,10 +21,13 @@
                 outputText = "<em>Creatinine</em> must be a number!";
             } else {
                 // calculate the result using ((140-age)*weight)/creatinine 
-                var CrCl = ((140-age)*weight)/creatinine;
-                outputText = "The creatinine clearence = CrCl;
+                var CrCl1 = ((140-age)*weight)/(creatinine);
+                var CrCl = CrCl1.toFixed(2);
+                outputText = "The creatinine clearence =" + CrCl + " ml/min";
             }
             
             // output the result (or errors)
             document.getElementById("output_text").innerHTML = outputText;
         }
+        
+        
