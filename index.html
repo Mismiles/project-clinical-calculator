@@ -20,21 +20,19 @@
   </head>
   <body>
 
-<form name="vanc"  action="javascript: validate();";
+<form name="vanc"  action="javascript: getAdvice();";
 <fieldset>
 
 <!-- Form Name -->
 <legend>Vancomycin prescribing tool</legend>
 
-<!-- Resource -->
-<br>
+<!-- New/Continuation-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="resource">Resource</label>
+  <label class="col-md-4 control-label" for="New or continuous">New or continuous treament?</label>  
   <div class="col-md-4">
-    <select id="resource" name="resource" class="form-control">
-      <option value="1">Micro advice</option>
-      <option value="2">Hospital guideline</option>
-      <option value="">Microguide</option>
+  <select id="neworcontinue" name="neworcontinue" class="form-control">
+      <option value="1">Newly initiated</option>
+      <option value="2">Continuous treatement</option>
     </select>
   </div>
 </div>
@@ -52,8 +50,8 @@
   <label class="col-md-4 control-label" for="gender">Gender</label>
   <div class="col-md-4">
     <select id="gender" name="gender" class="form-control">
-      <option value="1">Male</option>
-      <option value="2">Female</option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
     </select>
   </div>
 </div>
@@ -62,15 +60,15 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="age">Age</label>  
   <div class="col-md-4">
-  <input id="age" name="age" type="text" placeholder="Age in years" class="form-control input-md" required="">
+  <input id="age" name="age" type="text" placeholder="Age in years" MaxLength="2" class="form-control input-md" required="">
   </div>
 </div>
 
-<!-- Weightt-->
+<!-- Weight-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="weight">Weight in kg </label>  
   <div class="col-md-4">
-  <input id="weight" name="weight" type="text" placeholder="Weight in kg" class="form-control input-md" required="">
+  <input id="weight" name="weight" type="text" placeholder="Weight in kg" MaxLength="3" class="form-control input-md" required="">
   </div>
 </div>
 
@@ -145,7 +143,7 @@
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="submit" class="btn btn-primary" onclick="validate" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="submit" class="btn btn-primary" onclick="getAdvice" >Display dose and monitoring advice</button>
   </div>
 </div>
 
@@ -221,4 +219,3 @@
   
   </body>
 </html>
-

@@ -1,10 +1,15 @@
 body {
     position: relative;
+    font-size: 1em;
+    margin-left: 20px;
+    margin-top: 20px
 }
 
 legend {
     padding-left: 30px;
+    color: red;
 }
+
 .carousel {
   width:740px;
   height:860px;
