@@ -66,12 +66,31 @@
 
 <!-- Weight-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="weight">Weight in kg </label>  
+  <label class="col-md-4 control-label" for="weight">Weight in kg </label>
   <div class="col-md-4">
   <input id="weight" name="weight" type="text" placeholder="Weight in kg" MaxLength="3" class="form-control input-md" required="">
-  </div>
+  
+  <div class="checkbox">
+    <label for="parameters-0">
+      <input type="checkbox" name="parameters" id="overweight" value="1">
+      Overweight (BMI &gt; 25). Ticking will force height entry to help calculate BMI.
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="parameters-1">
+      <input type="checkbox" name="parameters" id="underweight" value="">
+      Underweight (BMI &lt; 18.5). Ticking will force height entry to help calculate BMI.
+    </label>
+	</div>
+	 <div class="checkbox">
+    <label for="parameters-1">
+      <input type="checkbox" name="parameters" id="normalweight" value="">
+      Normal weight (BMI &gt; 18.5 and &lt; 25)
+    </label>
+	</div>
 </div>
-
+</div>
+ 
 <!-- Date picker-->
 <div class="form-group">
 	<label class="col-md-4 control-label" for="datetimepicker-default">Date weight taken</label>
@@ -85,44 +104,32 @@
   <label class="col-md-4 control-label" for="parameters">Contact Pharmacy if any apply, as estimate may be inaccurate</label>
   <div class="col-md-4">
   <div class="checkbox">
-    <label for="parameters-0">
-      <input type="checkbox" name="parameters" id="parameters-0" value="1">
-      Overweight (BMI &gt; 25)
-    </label>
-	</div>
-  <div class="checkbox">
-    <label for="parameters-1">
-      <input type="checkbox" name="parameters" id="parameters-1" value="">
-      Underweight (BMI &lt; 18.5)
-    </label>
-	</div>
-  <div class="checkbox">
     <label for="parameters-2">
-      <input type="checkbox" name="parameters" id="parameters-2" value="">
+      <input type="checkbox" name="parameters" id="parameters-1" value="">
       Amputee
     </label>
 	</div>
   <div class="checkbox">
     <label for="parameters-3">
-      <input type="checkbox" name="parameters" id="parameters-3" value="">
+      <input type="checkbox" name="parameters" id="parameters-2" value="">
       Pregnant
     </label>
 	</div>
   <div class="checkbox">
     <label for="parameters-4">
-      <input type="checkbox" name="parameters" id="parameters-4" value="">
+      <input type="checkbox" name="parameters" id="parameters-3" value="">
       Paraplegia or quadriplegia
     </label>
 	</div>
   <div class="checkbox">
     <label for="parameters-5">
-      <input type="checkbox" name="parameters" id="parameters-5" value="">
+      <input type="checkbox" name="parameters" id="parameters-4" value="">
       Rapidly changing kidney function
     </label>
 	</div>
   <div class="checkbox">
     <label for="parameters-6">
-      <input type="checkbox" name="parameters" id="parameters-6" value="">
+      <input type="checkbox" name="parameters" id="parameters-5" value="">
       NONE of the ABOVE apply
     </label>
 	</div>
