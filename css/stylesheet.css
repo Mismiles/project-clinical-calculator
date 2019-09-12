@@ -14,3 +14,11 @@ legend {
   width:740px;
   height:860px;
 }
+
+.height{
+  display: none !important;
+}
+
+#height{
+  display: none !important;
+}
