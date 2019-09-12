@@ -86,10 +86,15 @@
             }
         }
         
+        //
+        
         //If Underweight, adjust CrCl
         function underweight(){
             underweight = CrCl*0.69;
         }
+        
+        
+        //For amputees
         
 
     
@@ -112,3 +117,24 @@
         function getAdvice () {
             
         }
+        
+        
+        
+        ///show height box
+        
+        <script type="text/javascript">
+	$(document).ready(function(){
+		$('.text_container').addClass("hidden");
+
+		$('.text_container').click(function() {
+			var $this = $(this);
+
+			if ($this.hasClass("hidden")) {
+				$(this).removeClass("hidden").addClass("visible");
+
+			} else {
+				$(this).removeClass("visible").addClass("hidden");
+			}
+		});
+	});
+</script>
