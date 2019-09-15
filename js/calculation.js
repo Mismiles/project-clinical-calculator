@@ -94,10 +94,6 @@
         }
         
         
-        //For amputees
-        
-
-    
     // date picker
     
      $(document).ready(function(){
@@ -122,7 +118,6 @@
         
         ///show height box
         
-        <script type="text/javascript">
 	$(document).ready(function(){
 		$('.text_container').addClass("hidden");
 
@@ -137,4 +132,3 @@
 			}
 		});
 	});
-</script>

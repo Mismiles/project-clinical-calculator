@@ -2,7 +2,8 @@ body {
     position: relative;
     font-size: 1em;
     margin-left: 20px;
-    margin-top: 20px
+    margin-top: 20px;
+  
 }
 
 legend {
@@ -10,16 +11,26 @@ legend {
     color: blue;
 }
 
-.carousel {
-  width:740px;
-  height:860px;
-}
+.statement {
+ border-style: solid;
+ border-color: green;
+ white-space: nowrap;
+ width: 470px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+  }
+  
 
 .height{
   display: none !important;
 }
 
-#height{
+/*.vancform {*/
+/*  display: none !important;*/
+/*}*/
+
+.carousel {
+  width:740px;
+  height:860px;
   display: none !important;
 }
-
