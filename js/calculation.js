@@ -10,16 +10,33 @@
     console.log('connected');
     
     // this function displays the form when the checkbox is true
-    function myFunction() {
+    function displayForm() {
         var checkbox = document.getElementById('showform');
         var vancform = document.getElementById('vancform');
+        
         if (checkbox.checked) {
             vancform.style.display = 'block';
         } else {
             vancform.style.display = 'none';
         }
     }
-    
+
+    //this function displays the height box if under OR overweight is slected
+    function displayHeight() {
+        var underWeight = document.getElementById('underweight');
+        var overWeight = document.getElementById('overweight');
+        var heightbox = document.getElementById('heightbox')
+        var normalweight = document.getElementById('normalweight')
+        
+        if (underWeight.checked) {
+            heightbox.style.display = 'block';
+        } else if (overWeight.checked) {
+            heightbox.style.display = 'block';
+        } else if (normalweight.checked) {
+            heightbox.style.display = 'none';
+        }
+    }
+
         
         // Initial dose calculation
         var vDose;

@@ -35,7 +35,7 @@
 	
 <!-- Safe to use tool-->
 	<br>
-      <input type="checkbox" name="parameters" id="showform" onclick="myFunction()">
+      <input type="checkbox" name="parameters" id="showform" onclick="displayForm()">
       NONE of the ABOVE apply (click to use tool)
   </div>
 </div>
@@ -91,19 +91,19 @@
   
   <div class="checkbox">
     <label for="parameters-0">
-      <input type="radio" name="parameters" id="overweight" value="1">
+      <input type="radio" name="parameters" id="overweight" value="" onclick="displayHeight()">
       Overweight (BMI &gt; 25). <span style="color:green"><i>Tick to help calculate BMI.</i></span>
     </label>
 	</div>
   <div class="checkbox">
     <label for="parameters-1">
-      <input type="radio" name="parameters" id="underweight" value="">
+      <input type="radio" name="parameters" id="underweight" value="" onclick="displayHeight()">
       Underweight (BMI &lt; 18.5). <span style="color:green"><i>Tick to help calculate BMI.</i></span>
     </label>
 	</div>
 	 <div class="checkbox">
     <label for="parameters-1">
-      <input type="radio" name="parameters" id="normalweight" value="">
+      <input type="radio" name="parameters" id="normalweight" value="" onclick="displayHeight()">
       Normal weight (BMI &gt; 18.5 and &lt; 25)
     </label>
 	</div>
@@ -112,7 +112,7 @@
 
 <br>
 <!-- Height-->
-<section class="height">
+<section id="heightbox">
 <div class="form-group">
   <label class="col-md-4 control-label" for="height"><b>Height</b></label>  
   <div class="col-md-4">
