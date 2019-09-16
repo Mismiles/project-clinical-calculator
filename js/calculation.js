@@ -2,12 +2,24 @@
     var age = document.forms["vanc"]["age"].value;
     var weight = document.forms["vanc"]["weight"].value;
     var height = document.forms["vanc"]["height"].value;
-    var creatinine = document.forms["vanc"]["creatine"].value;
-    var male = document.forms["vanc"]["gender"].male;
-    var female = document.forms["vanc"]["gender"].female;
+    var creatinine = document.forms["vanc"]["creatinine"].value;
+    // var male = document.forms["vanc"]["gender"].male;
+    // var female = document.forms["vanc"]["gender"].female;
     var bmi = weight/(height/100*height/100);
-
-
+    
+    console.log('connected');
+    
+    // this function displays the form when the checkbox is true
+    function myFunction() {
+        var checkbox = document.getElementById('showform');
+        var vancform = document.getElementById('vancform');
+        if (checkbox.checked) {
+            vancform.style.display = 'block';
+        } else {
+            vancform.style.display = 'none';
+        }
+    }
+    
         
         // Initial dose calculation
         var vDose;
@@ -57,7 +69,7 @@
         // CrCl with gender adjustment
         function kidneygender(){
         var resultG;
-            if (gender === M){
+            if (male){
                 resultG = CrCl0 *1.23;
             } else{
                 resultG = CrCl0 *1.04;
@@ -66,8 +78,8 @@
             
         // CrCl with creatinine
         function CrCl(){
-        creatinine = document.forms["vanc"]["creatine"].value;
-        var CrCl = resultG/creatine;
+        var creatinine = document.forms["vanc"]["creatine"].value;
+        var CrCl = resultG/creatinine;
         }
         
         
@@ -90,45 +102,7 @@
         
         //If Underweight, adjust CrCl
         function underweight(){
+            var underweight;
             underweight = CrCl*0.69;
         }
-        
-        
-    // date picker
-    
-     $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-    })
-        
-        
-        
-        function getAdvice () {
-            
-        }
-        
-        
-        
-        ///show height box
-        
-	$(document).ready(function(){
-		$('.text_container').addClass("hidden");
-
-		$('.text_container').click(function() {
-			var $this = $(this);
-
-			if ($this.hasClass("hidden")) {
-				$(this).removeClass("hidden").addClass("visible");
-
-			} else {
-				$(this).removeClass("visible").addClass("hidden");
-			}
-		});
-	});
+    }

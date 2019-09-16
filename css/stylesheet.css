@@ -22,12 +22,12 @@ legend {
   
 
 .height{
-  display: none !important;
+  display: none;
 }
 
-/*.vancform {*/
-/*  display: none !important;*/
-/*}*/
+#vancform {
+  display: none;
+}
 
 .carousel {
   width:740px;

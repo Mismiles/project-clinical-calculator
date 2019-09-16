@@ -11,15 +11,12 @@
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
     
-    <!-- Javascript -->
-    <script type="text/javascript" src="js/calculation.js"></script>
-    
     <title>Vancomycin calculation tool</title>
     
   </head>
   <body>
 
-<form name="vanc"  action="javascript: getAdvice();";
+<form name="vanc">
 <fieldset>
 
 <!-- Form Name -->
@@ -38,17 +35,13 @@
 	
 <!-- Safe to use tool-->
 	<br>
-  <div class="checkbox">
-    <label for="parameters-6">
-      <input type="checkbox" name="parameters" id="parameters-5" value="">
+      <input type="checkbox" name="parameters" id="showform" onclick="myFunction()">
       NONE of the ABOVE apply (click to use tool)
-    </label>
-	</div>
   </div>
 </div>
 
 
-<section class="vancform">
+<section id='vancform'>
 <!-- Indication-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="indication"><b>Indication</b></label>  
@@ -123,7 +116,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="height"><b>Height</b></label>  
   <div class="col-md-4">
-  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required="">
+  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required>
   </div>
 </div>
 </section>
@@ -218,8 +211,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <!-- Calulation JavaScript Code-->
-    <script type="text/javascript" href="js/calculation.js"></script>  
-  
+    <script type="text/javascript" href="js/calculation.js"></script>
   
   </body>
 </html>
