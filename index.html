@@ -112,12 +112,10 @@
 
 <br>
 <!-- Height-->
-<section id="heightbox">
-<div class="form-group">
+<section id="heightbox" class="form-group">
   <label class="col-md-4 control-label" for="height"><b>Height</b></label>  
   <div class="col-md-4">
-  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required>
-  </div>
+  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required="">
 </div>
 </section>
 
@@ -126,7 +124,6 @@
   <label class="col-md-4 control-label" for="creatinine"><b>Serum Creatinine in µmol/L</b></label>  
   <div class="col-md-4">
   <input id="creatinine" name="creatinine" type="text" autocomplete="off" maxlength="3" placeholder="Creatinine" class="form-control input-md" data-bind="value:replyNumber" required="">
-    
   </div>
 </div>
 
@@ -135,7 +132,7 @@
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="dose();bmi();" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs();" >Display dose and monitoring advice</button>
   </div>
 </div>
 

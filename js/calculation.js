@@ -63,7 +63,29 @@
         // Weight must be within three months
 
         
+        //Calculate BMI
+        var bmi;
+        function calculateBmi() {
+            var weight = w.value;
+            var height = h.value;
+            var normalweight = document.getElementById('normalweight')
+            
+            if (isNaN(weight)) {
+                bmi = "<em>Weight</em>must be a number!";
+            }else if (isNaN(height)) {
+                bmi = "<em>Height</em>must be a number!";
+            }else if (normalweight.checked) {
+                bmi = "The patient's BMI is normal";
+            }else {
+                bmi = weight/(height/100*height/100);
+        }
+        document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi.toFixed(2) + "<b>";
+        }
         
+        function runCalcs() {
+            dose();
+            calculateBmi();
+        }
         
         // Crcl without gender or creatinine adjustment
         var CrCl0;
@@ -99,26 +121,5 @@
             }
         document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + resultG + "<b>";
         }
-        
-        //Calculate of BMI
-        var bmi;
-        function bmi() {
-            var weight = w.value;
-            var height = h.value;
-            var normalweight = document.getElementById('normalweight')
-            
-            if (isNaN(weight)) {
-                bmi = "<em>Weight</em>must be a number!";
-            }else if (isNaN(height)) {
-                bmi = "<em>Height</em>must be a number!";
-            }else if (normalweight.checked) {
-                bmi = "The patient's BMI is  ";
-            }else {
-                bmi = weight/(height/100*height/100);
-        }
-        document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi + "<b>";
-        }
-        
-        
         
         

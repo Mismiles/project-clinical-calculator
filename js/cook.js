@@ -5,6 +5,7 @@
     var creatinine = window.document.getElementById("creatinine").value;
     var male = document.forms["vanc"]["male"].checked;
     var female = document.forms["vanc"]["female"].checked;
+    var renal = window.document.getElementById("height").value;
     
     console.log('connected');
     
@@ -120,3 +121,47 @@
             underweight = CrCl*0.69;
         }
     }
+    
+    
+    //If dose is 
+    var mDose;
+    function mDose() {
+            //get the input
+            var Crcl = 10;
+            
+            if (isNaN(renal)) {
+                mDose = "1";
+            } else if (renal >=90 &&<= 110) {
+                mDose = "2";
+            } else if (renal >=75 &&<= 89) {
+                mDose = "1000"+"mg";
+            } else if (renal >=55 &&<= 74) {
+                mDose = "1500"+"mg";
+            } else if (renal >=40 &&<= 54) {
+                mDose = "2000"+"mg";
+            } else if (renal >=30 &&<= 39) {
+                mDose = "2000"+"mg";
+            } else if (renal >=20 &&<= 29) {
+                mDose = "2000"+"mg";
+            } else if (renal >=10 &&<= 20) {
+                mDose = "2000"+"mg";
+            }
+            
+            
+            document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + mDose + "<b>";
+        }
+        
+function dose() {
+            //get the input
+            
+            if (isNaN(weight)) {
+                vDose = "<em>Weight</em>must be a number!";
+            } else if (weight < 40) {
+                vDose = 750+"mg";
+            } else if (weight >=40 && weight<= 59) {
+                vDose = 1000+"mg";
+            } else if (weight >=60 && weight<= 90) {
+                vDose = 1500+"mg";
+            } else if (weight >90) {
+                vDose = 2000+"mg";
+            }
