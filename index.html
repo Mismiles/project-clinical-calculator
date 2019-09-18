@@ -40,9 +40,9 @@
   </div>
 </div>
 
-
 <section id='vancform'>
 <!-- Indication-->
+<br>
 <div class="form-group">
   <label class="col-md-4 control-label" for="indication"><b>Indication</b></label>  
   <div class="col-md-4">
@@ -82,13 +82,13 @@
 </div>
 
 <!-- Date picker-->
-<div class="form-group"> <!-- Date input -->
+<div class="form-group">
         <label class="col-md-4 control-label" for="date"><b>Date Weight Taken</b></label>
           <div class="col-md-4">
-        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="text"/>
+        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="date" required="">
           </div>
 </div>
-  
+  <br>
   <div class="checkbox">
     <label for="parameters-0">
       <input type="radio" name="parameters" id="overweight" value="" onclick="displayHeight()">
@@ -135,20 +135,23 @@
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="submit" class="btn btn-primary" onclick="getAdvice" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="dose();bmi();" >Display dose and monitoring advice</button>
   </div>
 </div>
 
 </fieldset>
 </form>
+</section>
 
 <br>
-<p id="output_text">Prescribe STAT dose of =</p>
-<p id="output_text">The CrCl =</p>
+<p id="stat_dose">Prescribe STAT dose of</p>
+<p id="bmi_calc">The patient's BMI is</p>
+<p id="result_g">The CrCl =</p>
 <p id="output_text">Therefore prescribe</p>
 <p id="output_text">Every <b></b></p>
 <p id="output_text">Request a drug level on JAC and ICE</p>
-</section>
+
+
 
 <!-- Image carousel -->
   <div id="carouselExampleIndicators" class="carousel slide row" data-ride="carousel">
