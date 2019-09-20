@@ -23,7 +23,7 @@
 <legend>Vancomycin <b>initiation</b> tool</legend>
 
 <!-- Parameters -->
-  <div class="col-lg-4 statement" for="parameters" style="color:red">Review Vancomycin guideline AND Contact Pharmacy if any<br> apply, as this tool will not give relevant advice.
+  <div class="col-lg-4 statement" for="parameters" style="color:red">Review Vancomycin guideline AND Contact<br>Pharmacy if any apply, as this tool will not give<br>relevant advice.
     <br>
     <br>
     <p>Amputee</p>
@@ -35,9 +35,9 @@
 	
 <!-- Safe to use tool-->
 	<br>
+	<div style="color:blue">
       <input type="checkbox" name="parameters" id="showform" onclick="displayForm()">
       NONE of the ABOVE apply (click to use tool)
-  </div>
 </div>
 
 <section id='vancform'>
@@ -85,22 +85,19 @@
 <div class="form-group">
         <label class="col-md-4 control-label" for="date"><b>Date Weight Taken</b></label>
           <div class="col-md-4">
-        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="date" required="">
+        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="date" required="" onclick="verifyDate()">
           </div>
 </div>
+<p id="datemessage"></p>
+
   <br>
   <div class="checkbox">
     <label for="parameters-0">
-      <input type="radio" name="parameters" id="overweight" value="" onclick="displayHeight()">
-      Overweight (BMI &gt; 25). <span style="color:green"><i>Tick to help calculate BMI.</i></span>
+      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight()">
+      Abnormal Weight (BMI &lt; 18.5 OR BMI &gt; 25) <br><span style="color:green"><i>Tick to help calculate BMI</i></span>
     </label>
 	</div>
-  <div class="checkbox">
-    <label for="parameters-1">
-      <input type="radio" name="parameters" id="underweight" value="" onclick="displayHeight()">
-      Underweight (BMI &lt; 18.5). <span style="color:green"><i>Tick to help calculate BMI.</i></span>
-    </label>
-	</div>
+	
 	 <div class="checkbox">
     <label for="parameters-1">
       <input type="radio" name="parameters" id="normalweight" value="" onclick="displayHeight()">

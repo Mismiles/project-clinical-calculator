@@ -59,6 +59,25 @@
         }        
         
         
+        //Calculate BMI
+        var bmi;
+        function bmi() {
+            var weight = w.value;
+            var height = h.value;
+            var normalweight = document.getElementById('normalweight')
+            
+            if (isNaN(weight)) {
+                bmi = "<em>Weight</em>must be a number!";
+            }else if (isNaN(height)) {
+                bmi = "<em>Height</em>must be a number!";
+            }else if (normalweight.checked) {
+                bmi = "The patient's BMI is normal";
+            }else {
+                bmi = weight/(height/100*height/100);
+        }
+        document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + bmi;
+        }
+        
         // Crcl without gender or creatinine adjustment
         var CrCl0;
         
@@ -165,3 +184,5 @@ function dose() {
             } else if (weight >90) {
                 vDose = 2000+"mg";
             }
+            
+            https://stackoverflow.com/questions/14581610/check-date-greater-than-30-days-from-todays-date

@@ -23,14 +23,11 @@
 
     //this function displays the height box if under OR overweight is slected
     function displayHeight() {
-        var underWeight = document.getElementById('underweight');
-        var overWeight = document.getElementById('overweight');
+        var abnormalWeight = document.getElementById('abnormalWeight');
         var heightbox = document.getElementById('heightbox')
         var normalweight = document.getElementById('normalweight')
         
-        if (underWeight.checked) {
-            heightbox.style.display = 'block';
-        } else if (overWeight.checked) {
+        if (abnormalWeight.checked) {
             heightbox.style.display = 'block';
         } else if (normalweight.checked) {
             heightbox.style.display = 'none';
@@ -61,6 +58,19 @@
         
         
         // Weight must be within three months
+        var dVerify;
+        
+        function verifyDate (){
+        var datenear = document.getElementById("date");
+        var timestamp = new Date().getTime() - (90 * 24 * 60 * 60 * 1000);
+        
+            if (timestamp < datenear) {
+             dVerify = "Date must be within 3 months";
+            } else {
+             dVerify = "";
+            }
+            document.getElementById("datemessage").innerHTML = dVerify;
+        }
 
         
         //Calculate BMI
@@ -90,7 +100,8 @@
         // Crcl without gender or creatinine adjustment
         var CrCl0;
         
-        function CrCl0() {
+        function creatClear() {
+            
             //get age, weight, creatinie
             var weight = w.value;
             var age = a.value;

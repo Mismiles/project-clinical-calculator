@@ -20,6 +20,9 @@ legend {
  text-overflow: ellipsis;
   }
   
+ .showform {
+     color: blue;
+ }
 
 #heightbox{
   display: none;
@@ -28,6 +31,11 @@ legend {
 #vancform {
   display: none;
 }
+
+.datemessage{
+    color: red;
+}
+
 
 .carousel {
   width:740px;
