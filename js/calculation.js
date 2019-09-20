@@ -21,7 +21,7 @@
         }
     }
 
-    //this function displays the height box if under OR overweight is slected
+    //this function displays the height box if abnormal weight is slected
     function displayHeight() {
         var abnormalWeight = document.getElementById('abnormalWeight');
         var heightbox = document.getElementById('heightbox')
