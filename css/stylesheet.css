@@ -28,6 +28,10 @@ legend {
   display: none;
 }
 
+#bmi_calc{
+    display: none;
+}
+
 #vancform {
   display: none;
 }

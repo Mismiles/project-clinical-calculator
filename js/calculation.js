@@ -3,9 +3,8 @@
     var a = window.document.getElementById('age');
     var h = window.document.getElementById('height');
     var c = window.document.getElementById('creatinine');
-    var m = document.forms["vanc"]["male"];
-    var f = document.forms["vanc"]["female"];
-    
+    var m = document.getElementById("male");
+    var f = document.getElementById("female");
     
     console.log('connected');
     
@@ -26,14 +25,22 @@
         var abnormalWeight = document.getElementById('abnormalWeight');
         var heightbox = document.getElementById('heightbox')
         var normalweight = document.getElementById('normalweight')
+        var bmiText = document.getElementById('bmi_calc')
         
         if (abnormalWeight.checked) {
             heightbox.style.display = 'block';
+            bmiText.style.display = 'block';
         } else if (normalweight.checked) {
             heightbox.style.display = 'none';
+            bmiText.style.display = 'none';
         }
     }
-
+    
+    //indication statement
+    function displayIndication() {
+        var ind = document.getElementById('ind').value;
+        return document.getElementById('indication').innerHTML = "The indication for treatment is " + "<b>" + ind + "<b>";
+    }
         
         // Initial dose calculation
         var vDose;
@@ -56,23 +63,7 @@
             document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + vDose + "<b>";
         }        
         
-        
-        // Weight must be within three months
-        var dVerify;
-        
-        function verifyDate (){
-        var datenear = document.getElementById("date");
-        var timestamp = new Date().getTime() - (90 * 24 * 60 * 60 * 1000);
-        
-            if (timestamp < datenear) {
-             dVerify = "Date must be within 3 months";
-            } else {
-             dVerify = "";
-            }
-            document.getElementById("datemessage").innerHTML = dVerify;
-        }
-
-        
+    
         //Calculate BMI
         var bmi;
         function calculateBmi() {
@@ -89,24 +80,31 @@
             }else {
                 bmi = weight/(height/100*height/100);
         }
-        document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi.toFixed(2) + "<b>";
+            document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi.toFixed(2) + "<b>";
         }
         
-        function runCalcs() {
-            dose();
-            calculateBmi();
+        
+                // If overweight, calculate IBW
+                var IBW;
+        function idealBodyWeight () {
+            
+            var formula = 0.91 * (h.value - 152.4)
+            if (bmi > 25 && m.checked) {
+                IBW = 50 + formula;
+            } 
+            if (bmi > 25 && f.checked) {
+                 IBW = 45 + formula;
+            }
+            document.getElementById("ibw_text").innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW.toFixed(2) + "kg<b>";
         }
         
         // Crcl without gender or creatinine adjustment
         var CrCl0;
-        
         function creatClear() {
-            
+            var creatinine = c.value;
             //get age, weight, creatinie
             var weight = w.value;
             var age = a.value;
-            var creatinine = c.value;
-            
             if (age < 18) {
                 CrCl0 = "<em>Age</em> cannot equal less than 18!";
             } else if (isNaN(age)) {
@@ -120,17 +118,26 @@
             }
         }
         
-        // CrCl with gender adjustment
-        
+        //CrCl with gender adjustment
+        var genderCalc;
         function kidneygender(){
-        var resultG;
+        
         var male = m.checked;
+        var female = f.checked;
             if (male){
-                resultG = CrCl0 *1.23;
+                genderCalc = CrCl0 *1.23;
             } else{
-                resultG = CrCl0 *1.04;
+                genderCalc = CrCl0 *1.04;
             }
-        document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + resultG + "<b>";
+            document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + (genderCalc/c.value).toFixed(2) + "</b>";
         }
         
-        
+
+        function runCalcs() {
+            dose();
+            calculateBmi();
+            displayIndication();
+            creatClear();
+            kidneygender();
+            idealBodyWeight();
+        }

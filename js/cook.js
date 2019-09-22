@@ -109,6 +109,23 @@
             }
             
             
+            
+            // Weight must be within three months
+        var dVerify;
+        
+        function verifyDate (){
+        var datenear = document.getElementById("date").value;
+        var timestamp = new Date().getTime() - (90 * 24 * 60 * 60 * 1000);
+        
+            if (timestamp < datenear) {
+             dVerify = "Date must be within 3 months";
+            } else {
+             dVerify = "";
+            }
+            document.getElementById("datemessage").innerHTML = dVerify;
+        }
+            
+            
         // CrCl with creatinine
         function CrCl(){
         var creatinine = document.forms["vanc"]["creatine"].value;

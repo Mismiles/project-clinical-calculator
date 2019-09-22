@@ -46,20 +46,20 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="indication"><b>Indication</b></label>  
   <div class="col-md-4">
-  <input id="indication" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md" required="">
+  <input id="ind" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md" required="">
   </div>
 </div>
 
 <!-- Gender -->
-<div class="form-group" required="">
+<div class="form-group">
   <label class="col-md-4 control-label" for="gender"><b>Gender</b></label>
   <div class="col-md-4">
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-outline-primary">
-    <input type="radio" name="options" id="male" autocomplete="off"> Male
+    <input type="radio" name="options" id="male" value="male" onclick="getGender()"> Male
   </label>
   <label class="btn btn-outline-danger">
-    <input type="radio" name="options" id="female" autocomplete="off"> Female
+    <input type="radio" name="options" id="female" value="female" onclick="getGender()"> Female
   </label>
 </div>
   </div>
@@ -138,8 +138,10 @@
 </section>
 
 <br>
+<p id="indication">The indication for treatment is</p>
 <p id="stat_dose">Prescribe STAT dose of</p>
 <p id="bmi_calc">The patient's BMI is</p>
+<p id="ibw_text">The patient's ideal body weight is</p>
 <p id="result_g">The CrCl =</p>
 <p id="output_text">Therefore prescribe</p>
 <p id="output_text">Every <b></b></p>
