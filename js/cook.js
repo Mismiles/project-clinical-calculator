@@ -163,9 +163,9 @@
     var mDose;
     function mDose() {
             //get the input
-            var Crcl = 10;
+            var renal;
             
-            if (isNaN(renal)) {
+             if (isNaN(renal)) {
                 mDose = "1";
             } else if (renal >=90 &&<= 110) {
                 mDose = "2";
@@ -184,7 +184,7 @@
             }
             
             
-            document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + mDose + "<b>";
+            document.getElementById("main_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + mDose + "<b>";
         }
         
 function dose() {

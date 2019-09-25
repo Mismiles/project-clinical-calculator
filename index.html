@@ -36,7 +36,7 @@
 <!-- Safe to use tool-->
 	<br>
 	<div style="color:blue">
-      <input type="checkbox" name="parameters" id="showform" onclick="displayForm()">
+      <input type="checkbox" name="parameters" id="showform" onclick="displayForm();">
       NONE of the ABOVE apply (click to use tool)
 </div>
 
@@ -56,10 +56,10 @@
   <div class="col-md-4">
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-outline-primary">
-    <input type="radio" name="options" id="male" value="male" onclick="getGender()"> Male
+    <input type="radio" name="options" id="male" value="males" onclick="getGender()"> Male
   </label>
   <label class="btn btn-outline-danger">
-    <input type="radio" name="options" id="female" value="female" onclick="getGender()"> Female
+    <input type="radio" name="options" id="female" value="females" onclick="getGender()"> Female
   </label>
 </div>
   </div>
@@ -137,15 +137,12 @@
 </form>
 </section>
 
-<br>
-<p id="indication">The indication for treatment is</p>
-<p id="stat_dose">Prescribe STAT dose of</p>
-<p id="bmi_calc">The patient's BMI is</p>
-<p id="ibw_text">The patient's ideal body weight is</p>
-<p id="result_g">The CrCl =</p>
-<p id="output_text">Therefore prescribe</p>
-<p id="output_text">Every <b></b></p>
-<p id="output_text">Request a drug level on JAC and ICE</p>
+<p id="indication" class="text">The indication for treatment is</p>
+<p id="stat_dose" class="text">Prescribe STAT dose of</p>
+<p id="bmi_calc" class="text">The patient's BMI is</p>
+<p id="ibw_text" class="text">The patient's ideal body weight is</p>
+<p id="result_g" class="text">The CrCl =</p>
+<p id="main_dose" class="text">Therefore prescribe</p>
 
 
 

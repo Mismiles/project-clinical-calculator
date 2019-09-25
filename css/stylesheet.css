@@ -40,9 +40,13 @@ legend {
     color: red;
 }
 
+.text{
+    padding-bottom: 0; 
+}
 
 .carousel {
   width:740px;
   height:860px;
   display: none !important;
 }
+
