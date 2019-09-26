@@ -10,14 +10,24 @@
     console.log('connected');
     
     // this function displays the form when the checkbox is true
+    var checkbox = document.getElementById('showform');
     function displayForm() {
-        var checkbox = document.getElementById('showform');
         var vancform = document.getElementById('vancform');
         
         if (checkbox.checked) {
             vancform.style.display = 'block';
         } else {
             vancform.style.display = 'none';
+        }
+    }
+    
+    function hideParameters() {
+        var parameters = document.getElementById('parameters');
+        
+         if (checkbox.checked) {
+            parameters.style.display = 'none';
+        } else {
+            parameters.style.display = 'block';
         }
     }
 
@@ -80,7 +90,7 @@
             }else {
                 bmi = (weight/(height/100*height/100)).toFixed(2);
         }
-            document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi + "<b>";
+            document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi +  "<b>";
         }
         
         
@@ -98,7 +108,7 @@
             else if (bmi > 25 && f.checked) {
                  IBW = (45 + formula).toFixed(2);
             }
-            document.getElementById("ibw_text").innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "<b>";
+            document.getElementById("ibw_text").innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "<b>";
         }
         
         // Crcl without gender or creatinine adjustment
@@ -153,12 +163,12 @@
             }else if (female && normalweight.checked){
                 vancRenal = ((140-age)* weight * 1.04/creatinine);
             }
-            document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + vancRenal.toFixed(2) + "</b>";
+            document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + vancRenal.toFixed(2) + "ml" +"/min" + "</b>";
         }
         
         
            var mDose;
-    function mDose() {
+    function maintDose() {
             //get the input
          
             
@@ -195,10 +205,10 @@
             displayIndication();
             idealBodyWeight();
             vancCrcl();
-            mDose();
+            maintDose();
         }
         
         
         ///Vancomycin initiation dosing tool (all in bold)
         ///put not suitable for those ALREADY ON VANCOMYCIN
-        /// 
+        /// Make calendar obvious

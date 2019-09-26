@@ -23,6 +23,7 @@
 <legend>Vancomycin <b>initiation</b> tool</legend>
 
 <!-- Parameters -->
+<section id='parameters'>
   <div class="col-lg-4 statement" for="parameters" style="color:red">Review Vancomycin guideline AND Contact<br>Pharmacy if any apply, as this tool will not give<br>relevant advice.
     <br>
     <br>
@@ -31,12 +32,12 @@
     <p>Paraplegia or quadriplegia</p>
     <p>Rapidly changing kidney function</p>
 	</div>
-
+</section>
 	
 <!-- Safe to use tool-->
 	<br>
 	<div style="color:blue">
-      <input type="checkbox" name="parameters" id="showform" onclick="displayForm();">
+      <input type="checkbox" name="parameters" id="showform" onclick="displayForm(); hideParameters();">
       NONE of the ABOVE apply (click to use tool)
 </div>
 
