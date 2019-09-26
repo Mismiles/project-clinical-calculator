@@ -6,6 +6,7 @@
     var m = document.getElementById("male");
     var f = document.getElementById("female");
     var normalweight = document.getElementById('normalweight');
+    var abnormalWeight = document.getElementById('abnormalWeight');
     
     console.log('connected');
     
@@ -34,7 +35,6 @@
 
     //this function displays the height box if abnormal weight is slected
     function displayHeight() {
-        var abnormalWeight = document.getElementById('abnormalWeight');
         var heightbox = document.getElementById('heightbox')
         var bmiText = document.getElementById('bmi_calc')
         
@@ -99,7 +99,7 @@
         
          if (normalweight.checked) {
             ibwtext.style.display = 'none';
-        } else {
+        } else if (abnormalWeight.checked) {
             ibwtext.style.display = 'block';
         }
     }
