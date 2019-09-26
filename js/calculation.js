@@ -171,6 +171,10 @@
                 vancRenal = ((140-age)* IBW * 1.23)/creatinine;
             }else if (bmi >25 && female){
                 vancRenal = ((140-age)* IBW * 1.04)/creatinine;
+            }else if  (bmi <18.5 && male){
+                vancRenal = (((140-age)* weight * 1.23)/creatinine)*0.69;
+            }else if (bmi <18.5 && female){
+                vancRenal = (((140-age)* weight * 1.04)/creatinine)*0.69;
             }else if (male && normalweight.checked){
                 vancRenal = ((140-age)* weight * 1.23)/creatinine;
             }else if (female && normalweight.checked){
