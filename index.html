@@ -91,24 +91,22 @@
 </div>
 <p id="datemessage"></p>
 
-  <br>
   <div class="checkbox">
     <label for="parameters-0">
-      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight()">
+      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight();">
       Abnormal Weight (BMI &lt; 18.5 OR BMI &gt; 25) <br><span style="color:green"><i>Tick to help calculate BMI</i></span>
     </label>
 	</div>
 	
 	 <div class="checkbox">
     <label for="parameters-1">
-      <input type="radio" name="parameters" id="normalweight" value="" onclick="displayHeight()">
+      <input type="radio" name="parameters" id="normalweight" value="" onclick="toggleIBW(); displayHeight();">
       Normal weight (BMI &gt; 18.5 and &lt; 25)
     </label>
 	</div>
 </div>
 </div>
 
-<br>
 <!-- Height-->
 <section id="heightbox" class="form-group">
   <label class="col-md-4 control-label" for="height"><b>Height</b></label>  
@@ -138,13 +136,14 @@
 </form>
 </section>
 
+<section id="dosingAdvice">
 <p id="indication" class="text">The indication for treatment is</p>
 <p id="stat_dose" class="text">Prescribe STAT dose of</p>
 <p id="bmi_calc" class="text">The patient's BMI is</p>
 <p id="ibw_text" class="text">The patient's ideal body weight is</p>
 <p id="result_g" class="text">The CrCl =</p>
 <p id="main_dose" class="text">Therefore prescribe</p>
-
+</section>
 
 
 <!-- Image carousel -->

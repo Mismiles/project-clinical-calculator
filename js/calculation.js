@@ -21,6 +21,7 @@
         }
     }
     
+    //this function hides the parameters to make more space for the form if slected
     function hideParameters() {
         var parameters = document.getElementById('parameters');
         
@@ -35,7 +36,6 @@
     function displayHeight() {
         var abnormalWeight = document.getElementById('abnormalWeight');
         var heightbox = document.getElementById('heightbox')
-        var normalweight = document.getElementById('normalweight')
         var bmiText = document.getElementById('bmi_calc')
         
         if (abnormalWeight.checked) {
@@ -94,6 +94,16 @@
         }
         
         
+        function toggleIBW() {
+        var ibwtext = document.getElementById('ibw_text');
+        
+         if (normalweight.checked) {
+            ibwtext.style.display = 'none';
+        } else {
+            ibwtext.style.display = 'block';
+        }
+    }
+        
         // If overweight, calculate IBW
                 var IBW;
         function idealBodyWeight () {
@@ -110,6 +120,9 @@
             }
             document.getElementById("ibw_text").innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "<b>";
         }
+        
+        
+        
         
         // Crcl without gender or creatinine adjustment
         // var CrCl0;
@@ -198,6 +211,13 @@
             document.getElementById("main_dose").innerHTML = "Prescribe maintenance dose of " + "<b>" + mDose + "<b>";
         }
         
+           function dosing_Advice() {
+        var dAdvice = document.getElementById('dosingAdvice');
+        
+         { dAdvice.style.display = 'block';
+        }
+    }
+        
 
         function runCalcs() {
             dose();
@@ -206,6 +226,7 @@
             idealBodyWeight();
             vancCrcl();
             maintDose();
+            dosing_Advice();
         }
         
         
