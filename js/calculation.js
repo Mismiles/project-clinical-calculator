@@ -99,7 +99,9 @@
         
          if (normalweight.checked) {
             ibwtext.style.display = 'none';
-        } else if (abnormalWeight.checked) {
+        } else if (bmi <18.5) {
+            ibwtext.style.display = 'none';
+        } else if (bmi >25) {
             ibwtext.style.display = 'block';
         }
     }
@@ -222,6 +224,18 @@
         }
     }
         
+        
+        
+        //this function hides the parameters to make more space for the form if slected
+    function safety() {
+        var disclaimer = document.getElementById('calc');
+        
+         if (checkbox.checked) {
+            disclaimer.style.display = 'block';
+        } else if (checkbox.unchecked){
+            disclaimer.style.display = 'none';
+        }
+    }
 
         function runCalcs() {
             dose();

@@ -38,7 +38,7 @@
 	<br>
 	<div style="color:blue">
       <input type="checkbox" name="parameters" id="showform" onclick="displayForm(); hideParameters();">
-      NONE of the ABOVE apply (click to use tool)
+      NONE of the ABOVE apply (tick to use tool)
 </div>
 
 <section id='vancform'>
@@ -123,6 +123,13 @@
   </div>
 </div>
 
+<!-- Disclaimer-->
+<div style="color:red">
+      <input type="checkbox" name="safetyline" id="disclaimer" onclick="safety();">
+      I confirm that this tool takes no clinical responsibility for outcomes <br>
+      and I will use this tool to aid my ultimate clinical decision
+</div>
+  
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="calculate"></label>
@@ -143,6 +150,14 @@
 <p id="ibw_text" class="text">The patient's ideal body weight is</p>
 <p id="result_g" class="text">The CrCl =</p>
 <p id="main_dose" class="text">Therefore prescribe</p>
+
+<!-- Explain Button -->
+  <div class="col-md-4">
+    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="explain();" >Show dosing rationale</button>
+  </div>
+</div>
+
+
 </section>
 
 

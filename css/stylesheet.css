@@ -48,6 +48,10 @@ legend {
     display: block;
 }
 
+#calc{
+    display: none;
+}
+
 .text{
     margin-bottom: 2px;
 }
