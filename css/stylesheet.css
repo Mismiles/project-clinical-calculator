@@ -14,10 +14,7 @@ legend {
 .statement {
  border-style: solid;
  border-color: green;
- white-space: nowrap;
- width: 360px;
- overflow: hidden;
- text-overflow: ellipsis;
+ right: 10px;
   }
   
  .showform {

@@ -41,6 +41,7 @@
         if (abnormalWeight.checked) {
             heightbox.style.display = 'block';
             bmiText.style.display = 'block';
+            
         } else if (normalweight.checked) {
             heightbox.style.display = 'none';
             bmiText.style.display = 'none';
@@ -94,15 +95,15 @@
         }
         
         
-        function toggleIBW() {
-        var ibwtext = document.getElementById('ibw_text');
+    //     function toggleIBW() {
+    //     var ibwtext = document.getElementById('ibw_text');
         
-         if (normalweight.checked) {
+    //      if (normalweight.checked) {
             
-        } else if (bmi >25) {
-            ibwtext.style.display = 'block';
-        }
-    }
+    //     } else if (bmi >25) {
+    //         ibwtext.style.display = 'block';
+    //     }
+    // }
         
         // If overweight, calculate IBW
                 var IBW;
@@ -111,7 +112,7 @@
             var formula = 0.91 * (h.value - 152.4)
             
             if (normalweight.checked) {
-                 IBW = "normal";
+                 ibwText.style.display = 'none';
             }else if (bmi > 25 && m.checked) {
                 IBW = (50 + formula).toFixed(2);
                 ibwText.style.display = 'block';
@@ -120,7 +121,7 @@
                  IBW = (45 + formula).toFixed(2);
                  ibwText.style.display = 'block';
             }
-            else if (bmi < 18.5) {
+            else if (bmi < 25) {
                 ibwText.style.display = 'none';
             }
                 ibwText.innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "</b>";
@@ -211,13 +212,13 @@
             } else if (vancRenal >=40 && vancRenal<= 54) {
                 mDose = "500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
             } else if (vancRenal >=30 && vancRenal<= 39) {
-                mDose = "750"+"mg"+" every 24 hours,"+ " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
+                mDose = "750"+"mg"+" every 24 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
             } else if (vancRenal >=20 && vancRenal<= 29) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
             } else if (vancRenal >=10 && vancRenal<= 20) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 2nd dose. This includes the STAT dose";
             } else if (vancRenal <=10) {
-                mDose = "500"+"mg"+" every 48 hours,"+ " request a drug level on ICE every 24 hours. This includes the STAT dose";
+                mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE every 24 hours. This includes the STAT dose";
             }
             
             
@@ -263,7 +264,7 @@
         }
     }
         
-    
+    //This funtion explains the calculation to the user//
     function displayReasoning() {
         var showFormulas = document.getElementById("showFormulas");
         var gender;
@@ -277,7 +278,7 @@
         }
         
         if (bmi >25) {
-            weightStatus = "overweight, therefore their ideal body weight has been calculated and used in the CrCl formula"
+            weightStatus = "overweight, therefore their ideal body weight has been calculated as " + IBW + " and used in the CrCl formula"
         } else if (bmi <18.5) {
             weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
         } else {
@@ -285,34 +286,84 @@
         }
         
         if (bmi >25 && m.checked){
-                CrClCalc = ((140-a.value)* IBW * 1.23)/c.value;
+                CrClCalc = "((140-age)* IBW * 1.23)/creatinine";
             }else if (bmi >25 && f.checked){
-                CrClCalc = ((140-a.value)* IBW * 1.04)/c.value;
+                CrClCalc = "((140-age)* IBW * 1.04)/creatinine";
             }else if  (bmi <18.5 && m.checked){
-                CrClCalc = (((140-a.value) * w.value * 1.23)/c.value) * 0.69;
+                CrClCalc = "(((140-age) * weight * 1.23)/creatinine) * 0.69";
             }else if (bmi <18.5 && f.checked){
-                CrClCalc = (((140-a.value) * w.value * 1.04)/c.value) * 0.69;
-            }
+                CrClCalc = "(((140-age) * weight * 1.04)/creatinine) * 0.69";
+            }else if  (bmi >18.5 && bmi <25 && m.checked){
+                CrClCalc = "(((140-age) * weight * 1.23)/creatinine)";
+            }else if (bmi >18.5 && bmi <25 && f.checked){
+                CrClCalc = "(((140-age) * weight * 1.04)/creatinine)";
+            }else if (normalweight.checked && m.checked){
+                CrClCalc = "(((140-age) * weight * 1.23)/creatinine)";
+            }else if (normalweight.checked && f.checked){
+                CrClCalc = "(((140-age) * weight * 1.04)/creatinine)";
+        }
         
 
-        showFormulas.innerHTML = "The patient is a " + a.value + " year old " + gender + "." + "<br>" + "Their weight is " + w.value + "kg."
-        + "<br>" + "They are " + weightStatus + "<br>" + "The CrCl has been caulated as follows " + CrClCalc;
+        showFormulas.innerHTML = "The patient is a " + "<b>" + a.value + " year old " + gender + "." + "</b>" + " Their weight is " + "<b>" + w.value + "kg." + "</b>"
+        + "<br>" + "They are " + "<b>" + weightStatus + "</b>" + "<br>" + "You have entered a creatinine value of " + "<b>" + c.value + "mmol/L" + "</b>" + "<br>" + "The CrCl has been calculated as follows " + "<b>" + CrClCalc + "</b>";
     }
     
-    function highlightTable() {
-        
-        var classChange; 
+    var classChange; 
+    //This function highlihghts the appropriate vDose from the table//
+    function highlightWtable() {
         
         if (w.value < 40) {
                 classChange = document.getElementById("under40").style.backgroundColor= 'red';  
             } else if (w.value >=40 && w.value<= 59) {
-                classChange = document.getElementById("40to59").style.backgroundColor= 'red';  
-            } else if (w.valuet >=60 && w.value<= 90) {
-                classChange = document.getElementById("60to90").style.backgroundColor= 'red'; 
+                classChange = document.getElementById("w40to59").style.backgroundColor= 'red';  
+            } else if (w.value >=60 && w.value<= 90) {
+                classChange = document.getElementById("w60to90").style.backgroundColor= 'red'; 
             } else if (w.value >90) {
                 classChange = document.getElementById("over90").style.backgroundColor= 'red'; 
             }
     }
+    
+    var classRenal;
+    //This function highlihghts the appropriate vDose from the table//
+    function highlightRtable() {
+        
+        ///HAVE to add CRRT//
+        
+        if (isNaN(vancRenal) ) {
+                classRenal = document.getElementById("CRRT").style.backgroundColor= 'red';  
+            } else if (vancRenal >=0 && vancRenal <= 10) {
+                classRenal = document.getElementById("r0to10").style.backgroundColor= 'red';  
+            } else if (vancRenal >=10 && vancRenal<= 19) {
+                classRenal = document.getElementById("r10to19").style.backgroundColor= 'red'; 
+            } else if (vancRenal >20 && vancRenal<= 29) {
+                classRenal = document.getElementById("r20to29").style.backgroundColor= 'red'; 
+            } else if (vancRenal >=30 && vancRenal<= 39) {
+                classRenal = document.getElementById("r30to39").style.backgroundColor= 'red';  
+            } else if (vancRenal >=40 && vancRenal<= 54) {
+                classRenal = document.getElementById("r40to54").style.backgroundColor= 'red'; 
+            } else if (vancRenal >=55 && vancRenal<= 74) {
+                classRenal = document.getElementById("r55to74").style.backgroundColor= 'red'; 
+            } else if (vancRenal >=75 && vancRenal<= 89) {
+                classRenal = document.getElementById("r75to89").style.backgroundColor= 'red';  
+            } else if (vancRenal >=90 && vancRenal<= 110) {
+                classRenal = document.getElementById("r90to110").style.backgroundColor= 'red'; 
+            } else if (vancRenal >110) {
+                classRenal = document.getElementById("rOver110").style.backgroundColor= 'red'; 
+    }
+    
+    }
+    
+    
+    function resetTable() {
+        var resetTable = document.getElementById("under40").obj.style.color=" ";
+        document.getElementById("under40").obj.style.backgroundColor=" ";
+        document.getElementById("w40to59").obj.style.backgroundColor=" ";
+        document.getElementById("w60to90").obj.style.backgroundColor=" ";
+        document.getElementById("over90").obj.style.backgroundColor=" ";
+        
+    }
+    
+    
 
 
         function runCalcs() {
@@ -323,6 +374,7 @@
             vancCrcl();
             maintDose();
             dosing_Advice();
+            scrollWin();
         }
         
         

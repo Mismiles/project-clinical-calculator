@@ -24,7 +24,7 @@
 
 <!-- Parameters -->
 <section id='parameters'>
-  <div class="col-lg-4 statement" for="parameters" style="color:red">Review Vancomycin guideline AND <br> Contact Pharmacy if any apply, as this tool <br> will not give relevant advice.
+  <div class="col-md-4 statement" for="parameters" style="color:red">Review Vancomycin guideline AND Contact Pharmacy if any apply, as this tool will not give relevant advice.
     <br>
     <br>
     <p>Amputee</p>
@@ -93,7 +93,7 @@
 
   <div class="checkbox">
     <label for="parameters-0">
-      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="toggleIBW(); displayHeight();">
+      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight();">
       Abnormal Weight (BMI &lt; 18.5 OR BMI &gt; 25) <br><span style="color:green"><i>Tick to help calculate BMI</i></span>
     </label>
 	</div>
@@ -135,7 +135,7 @@
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs(); scrollWin();" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs();" >Display dose and monitoring advice</button>
   </div>
 </div>
 
@@ -157,11 +157,13 @@ or the patient is on renal replacement therapy</p>
 
 <!-- Explain Button -->
   <div class="col-md-4">
-    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="displayReasoning(); highlightTable(); explain();" >Show dosing rationale</button>
+    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Show dosing rationale</button>
   </div>
 </div>
 
 </section>
+
+<br>
 
 <section id="explainDosing"
 <!--Show formulas -->
@@ -169,9 +171,6 @@ or the patient is on renal replacement therapy</p>
 
 <table class="col-md-6 table table-bordered table-dark">
   <thead>
-    <tr>
-      <th>LOADING DOSE (initial STAT dose)</th>
-    </tr>
     <tr>
       <th scope="col">Actual body Weight (ABW)</th>
       <th scope="col">Vancomycin Dose</th>
@@ -184,12 +183,12 @@ or the patient is on renal replacement therapy</p>
       <td>750mg</td>
       <td>STAT</td>
     </tr>
-    <tr id="40to59">
+    <tr id="w40to59">
       <td>40 - 59 kg</td>
       <td>1000mg</td>
       <td>STAT</td>
     </tr>
-    <tr id="60to90">
+    <tr id="w60to90">
       <td>60 - 90 kg</td></td>
       <td>1500mg</td>
       <td>STAT</td>
@@ -215,61 +214,61 @@ or the patient is on renal replacement therapy</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr id="rOver110">
       <th>> 110</th>
       <td>1500mg</td>
       <td>12 hourly</td>
       <td>Before 4th dose</td>
     </tr>
-    <tr>
+    <tr id="r90to110">
       <th>90 - 110</th>
       <td>1250mg</td>
       <td>12 hourly</td>
       <td>Before 4th dose</td>
     </tr>
-    <tr>
+    <tr  id="r75to89">
       <th>75 - 89</th>
       <td>1000mg</td>
       <td>12 hourly</td>
       <td>Before 4th dose</td>
     </tr>
-     <tr>
+     <tr id="r55to74">
       <th>55 - 74</th>
       <td>750mg</td>
       <td>12 hourly</td>
       <td>Before 4th dose</td>
     </tr>
-    <tr>
+    <tr id="r40to54">
       <th>40 - 54</th>
       <td>500mg</td>
       <td>12 hourly</td>
       <td>Before 4th dose</td>
     </tr>
-    <tr>
+    <tr id="r30to90">
       <th>30 - 39</th>
       <td>750mg</td>
       <td>24 hourly</td>
       <td>Before 3rd dose</td>
     </tr>
-    <tr>
+    <tr id="r20to29">
       <th>20 - 29</th>
       <td>500mg</td>
       <td>24 hourly</td>
       <td>Before 3rd dose</td>
     </tr>
-    <tr>
+    <tr id="r10to19">
       <th>10 - 19</th>
       <td>500mg</td>
       <td>48 hourly</td>
       <td>Before 2nd dose</td>
     </tr>
-    <tr>
+    <tr id="r10to0">
       <th>< 10</th>
       <td>500mg</td>
       <td>48 hourly (check level before giving)</td>
       <td>24 hour intervals</td>
     </tr>
-    <tr>
+    <tr id="CRRT">
       <th>CRRT</th>
       <td>Jacob</td>
       <td>Thornton</td>
