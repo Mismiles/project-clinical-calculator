@@ -135,7 +135,7 @@
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs();" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs(); scrollWin();" >Display dose and monitoring advice</button>
   </div>
 </div>
 
@@ -151,14 +151,126 @@
 <p id="result_g" class="text">The CrCl =</p>
 <p id="main_dose" class="text">Therefore prescribe</p>
 
+<br>
+
 <!-- Explain Button -->
   <div class="col-md-4">
     <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="explain();" >Show dosing rationale</button>
   </div>
 </div>
 
-
 </section>
+
+<table class="col-md-4 table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>LOADING DOSE (initial STAT dose)</th>
+    </tr>
+    <tr>
+      <th scope="col">Actual body Weight (ABW)</th>
+      <th scope="col">Vancomycin Dose</th>
+      <th scope="col">DOse frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>< 40kg</td>
+      <td>750mg</td>
+      <td>STAT</td>
+    </tr>
+    <tr>
+      <td>40 - 59 kg</td>
+      <td>1000mg</td>
+      <td>STAT</td>
+    </tr>
+    <tr>
+      <td>60 - 90 kg</td></td>
+      <td>1500mg</td>
+      <td>STAT</td>
+    </tr>
+    <tr>
+      <td>> 90 kg</td></td>
+      <td>200mg</td>
+      <td>STAT</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table class="col-md-4 table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Creatinine clearence (mL/min)</th>
+      <th scope="col">Vancomycin Maintenance dose</th>
+      <th scope="col">Dose interval</th>
+      <th scope="col">Time of 1st level</th>
+      <th scope="col">Monitoring Frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>> 110</th>
+      <td>1500mg</td>
+      <td>12 hourly</td>
+      <td>Before 4th dose</td>
+    </tr>
+    <tr>
+      <th>90 - 110</th>
+      <td>1250mg</td>
+      <td>12 hourly</td>
+      <td>Before 4th dose</td>
+    </tr>
+    <tr>
+      <th>75 - 89</th>
+      <td>1000mg</td>
+      <td>12 hourly</td>
+      <td>Before 4th dose</td>
+    </tr>
+     <tr>
+      <th>55 - 74</th>
+      <td>750mg</td>
+      <td>12 hourly</td>
+      <td>Before 4th dose</td>
+    </tr>
+    <tr>
+      <th>40 - 54</th>
+      <td>500mg</td>
+      <td>12 hourly</td>
+      <td>Before 4th dose</td>
+    </tr>
+    <tr>
+      <th>30 - 39</th>
+      <td>750mg</td>
+      <td>24 hourly</td>
+      <td>Before 3rd dose</td>
+    </tr>
+    <tr>
+      <th>20 - 29</th>
+      <td>500mg</td>
+      <td>24 hourly</td>
+      <td>Before 3rd dose</td>
+    </tr>
+    <tr>
+      <th>10 - 19</th>
+      <td>500mg</td>
+      <td>48 hourly</td>
+      <td>Before 2nd dose</td>
+    </tr>
+    <tr>
+      <th>< 10</th>
+      <td>500mg</td>
+      <td>48 hourly (check level before giving)</td>
+      <td>24 hour intervals</td>
+    </tr>
+    <tr>
+      <th>CRRT</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+  </tbody>
+</table>
 
 
 <!-- Image carousel -->

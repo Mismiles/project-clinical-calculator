@@ -98,9 +98,7 @@
         var ibwtext = document.getElementById('ibw_text');
         
          if (normalweight.checked) {
-            ibwtext.style.display = 'none';
-        } else if (bmi <18.5) {
-            ibwtext.style.display = 'none';
+            
         } else if (bmi >25) {
             ibwtext.style.display = 'block';
         }
@@ -109,18 +107,23 @@
         // If overweight, calculate IBW
                 var IBW;
         function idealBodyWeight () {
-            
+            var ibwText = document.getElementById("ibw_text")
             var formula = 0.91 * (h.value - 152.4)
             
             if (normalweight.checked) {
                  IBW = "normal";
             }else if (bmi > 25 && m.checked) {
                 IBW = (50 + formula).toFixed(2);
+                ibwText.style.display = 'block';
             } 
             else if (bmi > 25 && f.checked) {
                  IBW = (45 + formula).toFixed(2);
+                 ibwText.style.display = 'block';
             }
-            document.getElementById("ibw_text").innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "<b>";
+            else if (bmi < 18.5) {
+                ibwText.style.display = 'none';
+            }
+                ibwText.innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "</b>";
         }
         
         
@@ -181,6 +184,10 @@
                 vancRenal = ((140-age)* weight * 1.23)/creatinine;
             }else if (female && normalweight.checked){
                 vancRenal = ((140-age)* weight * 1.04/creatinine);
+            }else if (male && abnormalWeight.checked && bmi <25 && bmi >18.5){
+                vancRenal = ((140-age)* weight * 1.23)/creatinine;
+            }else if (female && abnormalWeight.checked && bmi <25 && bmi >18.5){
+                vancRenal = ((140-age)* weight * 1.04/creatinine);
             }
             document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + vancRenal.toFixed(2) + "ml" +"/min" + "</b>";
         }
@@ -217,16 +224,18 @@
             document.getElementById("main_dose").innerHTML = "Prescribe maintenance dose of " + "<b>" + mDose + "<b>";
         }
         
+        
+        //Display dosing advice when calculate button clicked//
            function dosing_Advice() {
         var dAdvice = document.getElementById('dosingAdvice');
-        
-         { dAdvice.style.display = 'block';
+        {
+          dAdvice.style.display = 'block';
         }
     }
         
         
         
-        //this function hides the parameters to make more space for the form if slected
+        //This function shows the calculate button to add a layer of safety//
     function safety() {
         var disclaimer = document.getElementById('calc');
         
@@ -236,6 +245,12 @@
             disclaimer.style.display = 'none';
         }
     }
+
+        //Used to scroll form down//
+    function scrollWin() {
+     window.scrollBy(0, 500);
+        }
+
 
         function runCalcs() {
             dose();
