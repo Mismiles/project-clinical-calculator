@@ -65,6 +65,13 @@ legend {
     color: red;
 }
 
+#formZ{
+    display:block;
+}
+
+#sumButton{
+    display: none;
+}
 
 .carousel {
   width:740px;
