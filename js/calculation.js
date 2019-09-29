@@ -278,7 +278,7 @@
         }
         
         if (bmi >25) {
-            weightStatus = "overweight, therefore their ideal body weight has been calculated as " + IBW + " and used in the CrCl formula"
+            weightStatus = "overweight, therefore their ideal body weight has been calculated as " + IBW + "kg" + " and used in the CrCl formula"
         } else if (bmi <18.5) {
             weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
         } else {
