@@ -127,7 +127,7 @@
 <div style="color:red">
       <input type="checkbox" name="safetyline" id="disclaimer" onclick="safety();">
       I confirm that this tool takes no clinical responsibility for outcomes <br>
-      and I will use this tool to aid my ultimate clinical decision
+      and I will use this tool <b>only to aid my ultimate clinical decision.</b>
 </div>
   
 <!-- Button -->
@@ -150,18 +150,24 @@
 <p id="ibw_text" class="text">The patient's ideal body weight is</p>
 <p id="result_g" class="text">The CrCl =</p>
 <p id="main_dose" class="text">Therefore prescribe</p>
+<p id="poor_renal"class="text">Do not wait for the result before giving the next scheduled dose unless CrCl < 10 ml/min
+or the patient is on renal replacement therapy</p>
 
 <br>
 
 <!-- Explain Button -->
   <div class="col-md-4">
-    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="explain();" >Show dosing rationale</button>
+    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="displayReasoning(); highlightTable(); explain();" >Show dosing rationale</button>
   </div>
 </div>
 
 </section>
 
-<table class="col-md-4 table table-bordered table-dark">
+<section id="explainDosing"
+<!--Show formulas -->
+<div id="showFormulas"></div>
+
+<table class="col-md-6 table table-bordered table-dark">
   <thead>
     <tr>
       <th>LOADING DOSE (initial STAT dose)</th>
@@ -169,26 +175,26 @@
     <tr>
       <th scope="col">Actual body Weight (ABW)</th>
       <th scope="col">Vancomycin Dose</th>
-      <th scope="col">DOse frequency</th>
+      <th scope="col">Dose frequency</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr id="under40">
       <td>< 40kg</td>
       <td>750mg</td>
       <td>STAT</td>
     </tr>
-    <tr>
+    <tr id="40to59">
       <td>40 - 59 kg</td>
       <td>1000mg</td>
       <td>STAT</td>
     </tr>
-    <tr>
+    <tr id="60to90">
       <td>60 - 90 kg</td></td>
       <td>1500mg</td>
       <td>STAT</td>
     </tr>
-    <tr>
+    <tr id="over90">
       <td>> 90 kg</td></td>
       <td>200mg</td>
       <td>STAT</td>
@@ -198,7 +204,7 @@
 
 <br>
 
-<table class="col-md-4 table table-dark">
+<table class="col-md-6 table table-dark">
   <thead>
     <tr>
       <th scope="col">Creatinine clearence (mL/min)</th>

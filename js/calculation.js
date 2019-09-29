@@ -250,6 +250,69 @@
     function scrollWin() {
      window.scrollBy(0, 500);
         }
+        
+    // this function displays the dosing table and calualtions when the "show dosing rationale" button is clicked//
+ 
+    function explain() {
+        var explainRationale = document.getElementById('explainDosing');
+        
+        if (checkbox.checked) {
+            explainRationale.style.display = 'block';
+        } else {
+            explainRationale.style.display = 'none';
+        }
+    }
+        
+    
+    function displayReasoning() {
+        var showFormulas = document.getElementById("showFormulas");
+        var gender;
+        var weightStatus;
+        var CrClCalc;
+
+        if (m.checked) {
+            gender = "male"
+        } else if (f.checked) {
+            gender = "female"
+        }
+        
+        if (bmi >25) {
+            weightStatus = "overweight, therefore their ideal body weight has been calculated and used in the CrCl formula"
+        } else if (bmi <18.5) {
+            weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
+        } else {
+            weightStatus ="of normal weight, therefore no adjustment is required."
+        }
+        
+        if (bmi >25 && m.checked){
+                CrClCalc = ((140-a.value)* IBW * 1.23)/c.value;
+            }else if (bmi >25 && f.checked){
+                CrClCalc = ((140-a.value)* IBW * 1.04)/c.value;
+            }else if  (bmi <18.5 && m.checked){
+                CrClCalc = (((140-a.value) * w.value * 1.23)/c.value) * 0.69;
+            }else if (bmi <18.5 && f.checked){
+                CrClCalc = (((140-a.value) * w.value * 1.04)/c.value) * 0.69;
+            }
+        
+
+        showFormulas.innerHTML = "The patient is a " + a.value + " year old " + gender + "." + "<br>" + "Their weight is " + w.value + "kg."
+        + "<br>" + "They are " + weightStatus + "<br>" + "The CrCl has been caulated as follows " + CrClCalc;
+    }
+    
+    function highlightTable() {
+        
+        var classChange; 
+        
+        if (w.value < 40) {
+                classChange = document.getElementById("under40").style.backgroundColor= 'red';  
+            } else if (w.value >=40 && w.value<= 59) {
+                classChange = document.getElementById("40to59").style.backgroundColor= 'red';  
+            } else if (w.valuet >=60 && w.value<= 90) {
+                classChange = document.getElementById("60to90").style.backgroundColor= 'red'; 
+            } else if (w.value >90) {
+                classChange = document.getElementById("over90").style.backgroundColor= 'red'; 
+            }
+    }
 
 
         function runCalcs() {

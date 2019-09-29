@@ -52,6 +52,14 @@ legend {
     display: none;
 }
 
+#poor_renal{
+    color: red;
+}
+
+#explainDosing{
+    display:none;
+}
+
 .text{
     margin-bottom: 2px;
 }
