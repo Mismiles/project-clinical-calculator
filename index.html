@@ -16,6 +16,12 @@
   </head>
   <body>
 
+<div class="embed-responsive embed-responsive-16by9" id="guideline">
+  <iframe class="embed-responsive-item" src="images/vanc1.jpg"></iframe>
+</div>
+
+
+
 <form name="vanc">
 <fieldset>
 
@@ -36,10 +42,9 @@
 	
 <!-- Safe to use tool-->
 	<br>
-	<div style="color:blue">
-      <input type="checkbox" name="parameters" id="showform" onclick="displayForm(); hideParameters();">
-      NONE of the ABOVE apply (tick to use tool)
-</div>
+	<label style="color:blue">
+      <input type="checkbox" name="parameters" id="showform" onclick="displayForm(); hideParameters();"> NONE of the ABOVE apply (tick to use tool)
+  </label>
 
 <section id='vancform'>
 <!-- Indication-->
@@ -47,7 +52,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="indication"><b>Indication</b></label>  
   <div class="col-md-4">
-  <input id="ind" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md" required="">
+  <input id="ind" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md" required/>
   </div>
 </div>
 
@@ -70,37 +75,42 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="age"><b>Age</b></label>  
   <div class="col-md-4">
-  <input id="age" name="age" type="text" maxlength="3" placeholder="Age in years" autocomplete="off" class="form-control input-md" required="">
+  <input id="age" name="age" type="text" maxlength="3" placeholder="Age in years" autocomplete="off" class="form-control input-md" required/>
   </div>
 </div>
+
+<p id="ageOut"></p>
 
 <!-- Weight-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="weight"><b>Weight in kg</b></label>
   <div class="col-md-4">
-  <input id="weight" name="weight" type="text" maxlength="3" placeholder="Weight in kg" autocomplete="off" class="form-control input-md" required="">
+  <input id="weight" name="weight" type="text" maxlength="3" placeholder="Weight in kg" autocomplete="off" class="form-control input-md" required/>
 </div>
 </div>
+
+
+<p id="weighteOut"></p>
 
 <!-- Date picker-->
 <div class="form-group">
         <label class="col-md-4 control-label" for="date"><b>Date Weight Taken</b></label>
           <div class="col-md-4">
-        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="date" required="" onclick="verifyDate()">
+        <input id="form-control input-md date" name="date" autocomplete="off" placeholder="MM/DD/YYY" type="date" required onclick="verifyDate()">
           </div>
 </div>
 <p id="datemessage"></p>
 
   <div class="checkbox">
-    <label for="parameters-0">
-      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight();">
+    <label>
+      <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight();scrollWin();">
       Abnormal Weight (BMI &lt; 18.5 OR BMI &gt; 25) <br><span style="color:green"><i>Tick to help calculate BMI</i></span>
     </label>
 	</div>
 	
 	 <div class="checkbox">
-    <label for="parameters-1">
-      <input type="radio" name="parameters" id="normalweight" value="" onclick="toggleIBW(); displayHeight();">
+    <label>
+      <input type="radio" name="parameters" id="normalweight" value="" onclick="displayHeight();scrollWin();">
       Normal weight (BMI &gt; 18.5 and &lt; 25)
     </label>
 	</div>
@@ -111,24 +121,24 @@
 <section id="heightbox" class="form-group">
   <label class="col-md-4 control-label" for="height"><b>Height in cm</b></label>  
   <div class="col-md-4">
-  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required="">
+  <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required/>
 </div>
 </section>
+
+<p id="heightOut"></p>
 
 <!-- Creatinine-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="creatinine"><b>Serum Creatinine in µmol/L</b></label>  
   <div class="col-md-4">
-  <input id="creatinine" name="creatinine" type="text" autocomplete="off" maxlength="3" placeholder="Creatinine" class="form-control input-md" data-bind="value:replyNumber" required="">
+  <input id="creatinine" name="creatinine" type="text" autocomplete="off" maxlength="3" placeholder="Creatinine" class="form-control input-md" data-bind="value:replyNumber" required="true"/>
   </div>
 </div>
 
 <!-- Disclaimer-->
-<div style="color:red">
-      <input type="checkbox" name="safetyline" id="disclaimer" onclick="safety();">
-      I confirm that this tool takes no clinical responsibility for outcomes <br>
-      and I will use this tool <b>only to aid my ultimate clinical decision.</b>
-</div>
+<label style="color:red">
+      <input type="checkbox" name="safetyline" id="disclaimer" onclick="safety(); scrollWin();">  I confirm that this tool takes no clinical responsibility for outcomes <br> and I will use this tool <b>only to aid my ultimate clinical decision.</b>
+</label>
   
 <!-- Button -->
 <div class="form-group">
@@ -158,7 +168,7 @@ or the patient is on renal replacement therapy</p>
 
 <!-- Explain Button -->
   <div class="col-md-4">
-    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Show dosing rationale</button>
+    <button id="explain" name="exp" type="button" class="btn btn-success" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Show dosing rationale</button>
   </div>
 </div>
 

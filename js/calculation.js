@@ -72,7 +72,7 @@
             } else if (weight >90) {
                 vDose = "2000"+"mg";
             }
-            document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + vDose + "<b>";
+            document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + vDose + "<b>" ;
         }        
         
     
@@ -201,19 +201,19 @@
             
              if (isNaN(vancRenal)) {
                 mDose = "fill out form properly";
-            } else if (vancRenal>= 110) {
+            } else if (vancRenal> 110.01) {
                 mDose = "1500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=90 && vancRenal<= 110) {
+            } else if (vancRenal >90 && vancRenal<= 110) {
                 mDose = "1250"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=75 && vancRenal<= 89) {
+            } else if (vancRenal >=75 && vancRenal<= 89.99) {
                 mDose = "1000"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=55 && vancRenal<= 74) {
+            } else if (vancRenal >=55 && vancRenal<= 74.99) {
                 mDose = "750"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=40 && vancRenal<= 54) {
+            } else if (vancRenal >40 && vancRenal<= 54.99) {
                 mDose = "500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=30 && vancRenal<= 39) {
+            } else if (vancRenal >30 && vancRenal<= 39.99) {
                 mDose = "750"+"mg"+" every 24 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
-            } else if (vancRenal >=20 && vancRenal<= 29) {
+            } else if (vancRenal >20 && vancRenal<= 29.99) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
             } else if (vancRenal >=10 && vancRenal<= 20) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 2nd dose. This includes the STAT dose";
@@ -249,7 +249,7 @@
 
         //Used to scroll form down//
     function scrollWin() {
-     window.scrollBy(0, 500);
+     window.scrollBy(0, 300);
         }
         
     // this function displays the dosing table and calualtions when the "show dosing rationale" button is clicked//
@@ -270,6 +270,7 @@
         var gender;
         var weightStatus;
         var CrClCalc;
+        var bmiFormula = "weight/(height in m)²"
 
         if (m.checked) {
             gender = "male"
@@ -282,7 +283,7 @@
         } else if (bmi <18.5) {
             weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
         } else {
-            weightStatus ="of normal weight, therefore no adjustment is required."
+            weightStatus ="of normal weight, therefore no adjustment to creatinine clearence is required."
         }
         
         if (bmi >25 && m.checked){
@@ -305,7 +306,7 @@
         
 
         showFormulas.innerHTML = "The patient is a " + "<b>" + a.value + " year old " + gender + "." + "</b>" + " Their weight is " + "<b>" + w.value + "kg." + "</b>"
-        + "<br>" + "They are " + "<b>" + weightStatus + "</b>" + "<br>" + "You have entered a creatinine value of " + "<b>" + c.value + "mmol/L" + "</b>" + "<br>" + "The CrCl has been calculated as follows " + "<b>" + CrClCalc + "</b>";
+        + "<br>" + "They are " + "<b>" + weightStatus + "</b>" + "<br>" + "You have entered a creatinine value of " + "<b>" + c.value + "µmol/L" + "</b>" + "<br>" + "The CrCl has been calculated as follows " + "<b>" + CrClCalc + "</b>";
     }
     
     var classChange; 
@@ -354,14 +355,12 @@
     }
     
     
-    function resetTable() {
-        var resetTable = document.getElementById("under40").obj.style.color=" ";
-        document.getElementById("under40").obj.style.backgroundColor=" ";
-        document.getElementById("w40to59").obj.style.backgroundColor=" ";
-        document.getElementById("w60to90").obj.style.backgroundColor=" ";
-        document.getElementById("over90").obj.style.backgroundColor=" ";
-        
-    }
+    var verifyAge = document.getElementById("age");
+    function verify() {
+  if (!verifyAge.checkValidity()) {
+    document.getElementById("ageOut").innerHTML = "Age must be at least 18";
+  }
+}
     
 
 
@@ -374,6 +373,7 @@
             maintDose();
             dosing_Advice();
             scrollWin();
+            verify();
         }
         
         

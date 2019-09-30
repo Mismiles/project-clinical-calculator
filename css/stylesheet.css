@@ -11,6 +11,11 @@ legend {
     color: blue;
 }
 
+#guideline{
+    position: absolute;
+    margin-left: 600px;
+}
+
 .statement {
  border-style: solid;
  border-color: green;
@@ -51,6 +56,10 @@ legend {
 
 #poor_renal{
     color: red;
+}
+
+#stat_dose, #main_dose, h2{
+    color: green;
 }
 
 #explainDosing{
