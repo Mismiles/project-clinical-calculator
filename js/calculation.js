@@ -334,19 +334,19 @@
                 classRenal = document.getElementById("CRRT").style.backgroundColor= 'red';  
             } else if (vancRenal >=0 && vancRenal <= 10) {
                 classRenal = document.getElementById("r0to10").style.backgroundColor= 'red';  
-            } else if (vancRenal >=10 && vancRenal<= 19) {
+            } else if (vancRenal >10 && vancRenal<= 19.5) {
                 classRenal = document.getElementById("r10to19").style.backgroundColor= 'red'; 
-            } else if (vancRenal >20 && vancRenal<= 29) {
+            } else if (vancRenal >19.5 && vancRenal<= 29.5) {
                 classRenal = document.getElementById("r20to29").style.backgroundColor= 'red'; 
-            } else if (vancRenal >=30 && vancRenal<= 39) {
+            } else if (vancRenal >29.5 && vancRenal<= 39.5) {
                 classRenal = document.getElementById("r30to39").style.backgroundColor= 'red';  
-            } else if (vancRenal >=40 && vancRenal<= 54) {
+            } else if (vancRenal >39.5 && vancRenal<= 54.5) {
                 classRenal = document.getElementById("r40to54").style.backgroundColor= 'red'; 
-            } else if (vancRenal >=55 && vancRenal<= 74) {
+            } else if (vancRenal >54.5 && vancRenal<= 74.5) {
                 classRenal = document.getElementById("r55to74").style.backgroundColor= 'red'; 
-            } else if (vancRenal >=75 && vancRenal<= 89) {
+            } else if (vancRenal >74.5 && vancRenal<= 89.5) {
                 classRenal = document.getElementById("r75to89").style.backgroundColor= 'red';  
-            } else if (vancRenal >=90 && vancRenal<= 110) {
+            } else if (vancRenal >89.5 && vancRenal<= 110) {
                 classRenal = document.getElementById("r90to110").style.backgroundColor= 'red'; 
             } else if (vancRenal >110) {
                 classRenal = document.getElementById("rOver110").style.backgroundColor= 'red'; 
@@ -354,12 +354,9 @@
     
     }
     
-    
-    var verifyAge = document.getElementById("age");
-    function verify() {
-  if (!verifyAge.checkValidity()) {
-    document.getElementById("ageOut").innerHTML = "Age must be at least 18";
-  }
+    //Reset the tables once input changed//
+        function resetTable() {
+    document.getElementsByTagName("TR").style.backgroundColor = "red";
 }
     
 
@@ -373,7 +370,7 @@
             maintDose();
             dosing_Advice();
             scrollWin();
-            verify();
+            resetTable();
         }
         
         
