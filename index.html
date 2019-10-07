@@ -15,6 +15,7 @@
     
   </head>
   <body>
+    
 
 <div class="embed-responsive embed-responsive-16by9 col-6 .d-sm-none .d-md-block" id="guideline">
   <iframe class="embed-responsive-item .d-sm-none" src="PDF/vanc.pdf"></iframe>
@@ -27,6 +28,9 @@
 
 <!-- Form Name -->
 <legend><b>Adult</b> Vancomycin <b>initiation</b> tool</legend>
+<button class="col-md-4 btn btn-danger" id="gbutton" name="vancGuidline" type="button" 
+onclick="showGuideline();" >Display guideline on right of page</button>  
+
 
 <!-- Parameters -->
 <section id='parameters'>
@@ -38,15 +42,19 @@
     <p>Paraplegia or quadriplegia</p>
     <p>Rapidly changing kidney function</p>
 	</div>
-</section>
+	
 	
 <!-- Safe to use tool-->
 	<br>
 	<label style="color:blue">
       <input type="checkbox" name="parameters" id="showform" onclick="displayForm(); hideParameters();"> NONE of the ABOVE apply (tick to use tool)
   </label>
+</section>
+	
+
 
 <section id='vancform'>
+  
 <!-- Indication-->
 <br>
 <div class="form-group">
@@ -110,7 +118,7 @@
 	
 	 <div class="checkbox">
     <label>
-      <input type="radio" name="parameters" id="normalweight" value="" onclick="displayHeight();scrollWin();">
+      <input type="radio" name="parameters" id="normalweight" value="" checked="checked" onclick="displayHeight();scrollWin();">
       Normal weight (BMI &gt; 18.5 and &lt; 25)
     </label>
 	</div>
@@ -154,7 +162,7 @@
 </section>
 
 
-<section id="dosingAdvice">
+<section class="col-md-4" id="dosingAdvice">
 <p id="indication" class="text">The indication for treatment is</p>
 <p id="stat_dose" class="text">Prescribe STAT dose of</p>
 <p id="bmi_calc" class="text">The patient's BMI is</p>
@@ -167,7 +175,7 @@ or the patient is on renal replacement therapy</p>
 <br>
 
 <!-- Explain Button -->
-  <div class="col-md-4">
+  <div>
     <button id="explain" name="exp" type="button" class="btn btn-success" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Show dosing rationale</button>
   </div>
 </div>
@@ -176,7 +184,7 @@ or the patient is on renal replacement therapy</p>
 
 <br>
 
-<section id="explainDosing"
+<section class="col-md-4" id="explainDosing"
 <!--Show formulas -->
 <div id="showFormulas"></div>
 

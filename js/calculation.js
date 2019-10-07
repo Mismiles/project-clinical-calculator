@@ -32,6 +32,13 @@
             parameters.style.display = 'block';
         }
     }
+    
+    
+    function showGuideline() {
+        var guideline = document.getElementById('guideline');
+            guideline.style.display = 'block';
+    }
+ 
 
     //this function displays the height box if abnormal weight is slected
     function displayHeight() {
@@ -95,15 +102,7 @@
         }
         
         
-    //     function toggleIBW() {
-    //     var ibwtext = document.getElementById('ibw_text');
-        
-    //      if (normalweight.checked) {
-            
-    //     } else if (bmi >25) {
-    //         ibwtext.style.display = 'block';
-    //     }
-    // }
+    //     
         
         // If overweight, calculate IBW
                 var IBW;
@@ -356,7 +355,7 @@
     
     //Reset the tables once input changed//
         function resetTable() {
-    document.getElementsByTagName("TR").style.backgroundColor = "red";
+    document.getElementsByTagName("TR").style.backgroundColor = "black";
 }
     
 
