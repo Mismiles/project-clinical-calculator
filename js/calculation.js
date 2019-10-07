@@ -1,4 +1,5 @@
-//declare global variables
+    
+    //declare global variables
     var w = document.getElementById('weight');
     var a = window.document.getElementById('age');
     var h = window.document.getElementById('height');
@@ -60,7 +61,26 @@
         var ind = document.getElementById('ind').value;
         return document.getElementById('indication').innerHTML = "The indication for treatment is " + "<b>" + ind + "<b>";
     }
-        
+    
+    //Date picker max date
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("datepicker").setAttribute("max", today);
+    
+
+    
+    
         // Initial dose calculation
         var vDose;
         
@@ -102,7 +122,6 @@
         }
         
         
-    //     
         
         // If overweight, calculate IBW
                 var IBW;
