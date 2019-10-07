@@ -202,7 +202,7 @@
             }else if (male && normalweight.checked){
                 vancRenal = ((140-age)* weight * 1.23)/creatinine;
             }else if (female && normalweight.checked){
-                vancRenal = ((140-age)* weight * 1.04/creatinine);
+                vancRenal = ((140-age)* weight * 1.04)/creatinine;
             }else if (male && abnormalWeight.checked && bmi <25 && bmi >18.5){
                 vancRenal = ((140-age)* weight * 1.23)/creatinine;
             }else if (female && abnormalWeight.checked && bmi <25 && bmi >18.5){
@@ -313,13 +313,13 @@
             }else if (bmi <18.5 && f.checked){
                 CrClCalc = "(((140-age) * weight * 1.04)/creatinine) * 0.69";
             }else if  (bmi >18.5 && bmi <25 && m.checked){
-                CrClCalc = "(((140-age) * weight * 1.23)/creatinine)";
+                CrClCalc = "((140-age) * weight * 1.23)/creatinine";
             }else if (bmi >18.5 && bmi <25 && f.checked){
-                CrClCalc = "(((140-age) * weight * 1.04)/creatinine)";
+                CrClCalc = "((140-age) * weight * 1.04)/creatinine";
             }else if (normalweight.checked && m.checked){
-                CrClCalc = "(((140-age) * weight * 1.23)/creatinine)";
+                CrClCalc = "((140-age) * weight * 1.23)/creatinine";
             }else if (normalweight.checked && f.checked){
-                CrClCalc = "(((140-age) * weight * 1.04)/creatinine)";
+                CrClCalc = "((140-age) * weight * 1.04)/creatinine";
         }
         
 
