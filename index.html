@@ -28,7 +28,7 @@
 
 <!-- Form Name -->
 <legend><b>Adult</b> Vancomycin <b>initiation</b> tool</legend>
-<button class="col-md-4 btn btn-danger" id="gbutton" name="vancGuidline" type="button" 
+<button class="col-md-4 btn btn-info" id="gbutton" name="vancGuidline" type="button" 
 onclick="showGuideline();" >Display guideline on right of page</button>  
 
 
@@ -101,13 +101,12 @@ onclick="showGuideline();" >Display guideline on right of page</button>
 
 <!-- Date picker-->
 <div class="form-group">
-        <label class="col-md-4 control-label" for="date"><b>Date Weight Taken</b></label>
+        <label class="col-md-4 control-label" for="date"><b>Date Weight Taken</b><span style="color:red"><i> (Weight must be measured within last 3 months)</i></span></label>
           <div class="col-md-4">
         <input class="form-control input-md" id="datepicker" name="date"
         autocomplete="off" placeholder="MM/DD/YYY" type="date" min='2019-01-01' max='2019-12-01'></input>
           </div>
 </div>
-<p id="datemessage"></p>
   <div class="checkbox">
     <label>
       <input type="radio" name="parameters" id="abnormalWeight" value="" onclick="displayHeight();scrollWin();">
