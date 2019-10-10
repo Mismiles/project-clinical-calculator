@@ -7,7 +7,6 @@ body {
 }
 
 legend {
-    padding-left: 30px;
     color: blue;
 }
 
@@ -38,7 +37,7 @@ legend {
  }
 
 #heightbox{
-  display: none;
+  display: block;
 }
 
 #dosingAdvice{
