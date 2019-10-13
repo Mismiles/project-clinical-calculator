@@ -1,5 +1,4 @@
-    
-    //declare global variables
+//declare global variables
     var w = document.getElementById('weight');
     var a = window.document.getElementById('age');
     var h = window.document.getElementById('height');
@@ -7,7 +6,7 @@
     var m = document.getElementById("male");
     var f = document.getElementById("female");
     var normalweight = document.getElementById('normalweight');
-    var abnormalWeight = document.getElementById('abnormalWeight');
+    // var abnormalWeight = document.getElementById('abnormalWeight');
     
     console.log('connected');
     
@@ -41,20 +40,20 @@
     }
  
 
-    //this function displays the height box if abnormal weight is slected
-    function displayHeight() {
-        var heightbox = document.getElementById('heightbox')
-        var bmiText = document.getElementById('bmi_calc')
+    // //this function displays the height box if abnormal weight is slected
+    // function displayHeight() {
+    //     var heightbox = document.getElementById('heightbox')
+    //     var bmiText = document.getElementById('bmi_calc')
         
-        if (abnormalWeight.checked) {
-            heightbox.style.display = 'block';
-            bmiText.style.display = 'block';
+    //     if (abnormalWeight.checked) {
+    //         heightbox.style.display = 'block';
+    //         bmiText.style.display = 'block';
             
-        } else if (normalweight.checked) {
-            heightbox.style.display = 'none';
-            bmiText.style.display = 'none';
-        }
-    }
+    //     } else if (normalweight.checked) {
+    //         heightbox.style.display = 'none';
+    //         bmiText.style.display = 'none';
+    //     }
+    // }
     
     //indication statement
     function displayIndication() {
@@ -113,8 +112,6 @@
                 bmi = "<em>Weight</em>must be a number!";
             }else if (isNaN(height)) {
                 bmi = "<em>Height</em>must be a number!";
-            }else if (normalweight.checked) {
-                bmi = "normal";
             }else {
                 bmi = (weight/(height/100*height/100)).toFixed(2);
         }
@@ -129,15 +126,13 @@
             var ibwText = document.getElementById("ibw_text")
             var formula = 0.91 * (h.value - 152.4)
             
-            if (normalweight.checked) {
-                 ibwText.style.display = 'none';
-            }else if (bmi > 25 && m.checked) {
+           if (bmi > 25 && m.checked) {
                 IBW = (50 + formula).toFixed(2);
-                ibwText.style.display = 'block';
+          
             } 
             else if (bmi > 25 && f.checked) {
                  IBW = (45 + formula).toFixed(2);
-                 ibwText.style.display = 'block';
+           
             }
             else if (bmi < 25) {
                 ibwText.style.display = 'none';
@@ -199,13 +194,9 @@
                 vancRenal = (((140-age)* weight * 1.23)/creatinine)*0.69;
             }else if (bmi <18.5 && female){
                 vancRenal = (((140-age)* weight * 1.04)/creatinine)*0.69;
-            }else if (male && normalweight.checked){
+            }else if (male && bmi <25 && bmi >18.5){
                 vancRenal = ((140-age)* weight * 1.23)/creatinine;
-            }else if (female && normalweight.checked){
-                vancRenal = ((140-age)* weight * 1.04)/creatinine;
-            }else if (male && abnormalWeight.checked && bmi <25 && bmi >18.5){
-                vancRenal = ((140-age)* weight * 1.23)/creatinine;
-            }else if (female && abnormalWeight.checked && bmi <25 && bmi >18.5){
+            }else if (female && bmi <25 && bmi >18.5){
                 vancRenal = ((140-age)* weight * 1.04/creatinine);
             }
             document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + vancRenal.toFixed(2) + "ml" +"/min" + "</b>";
@@ -217,8 +208,8 @@
             //get the input
          
             
-             if (isNaN(vancRenal)) {
-                mDose = "fill out form properly";
+             if (CRRT.checked) {
+                mDose = "A level will have to be taken every 24 hours. The maintenance dose will have to be held until the level is in range";
             } else if (vancRenal> 110.01) {
                 mDose = "1500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
             } else if (vancRenal >90 && vancRenal<= 110) {
@@ -343,39 +334,52 @@
     }
     
     var classRenal;
+    var monitorFreq;
+    var CRRT = document.getElementById('Yes');
+    // var renal = CRRT.value = "Yes";
     //This function highlihghts the appropriate vDose from the table//
     function highlightRtable() {
         
-        ///HAVE to add CRRT//
         
-        if (isNaN(vancRenal) ) {
-                classRenal = document.getElementById("CRRT").style.backgroundColor= 'red';  
+        if (CRRT.checked) {
+                classRenal = document.getElementById("CRRT").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreqbad").style.backgroundColor= 'red';
             } else if (vancRenal >=0 && vancRenal <= 10) {
-                classRenal = document.getElementById("r0to10").style.backgroundColor= 'red';  
+                classRenal = document.getElementById("r0to10").style.backgroundColor= 'red';
+                 monitorFreq = document.getElementById("monitorFreqbad").style.backgroundColor= 'red';
             } else if (vancRenal >10 && vancRenal<= 19.5) {
                 classRenal = document.getElementById("r10to19").style.backgroundColor= 'red'; 
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >19.5 && vancRenal<= 29.5) {
                 classRenal = document.getElementById("r20to29").style.backgroundColor= 'red'; 
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >29.5 && vancRenal<= 39.5) {
                 classRenal = document.getElementById("r30to39").style.backgroundColor= 'red';  
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >39.5 && vancRenal<= 54.5) {
                 classRenal = document.getElementById("r40to54").style.backgroundColor= 'red'; 
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >54.5 && vancRenal<= 74.5) {
-                classRenal = document.getElementById("r55to74").style.backgroundColor= 'red'; 
+                classRenal = document.getElementById("r55to74").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >74.5 && vancRenal<= 89.5) {
-                classRenal = document.getElementById("r75to89").style.backgroundColor= 'red';  
+                classRenal = document.getElementById("r75to89").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >89.5 && vancRenal<= 110) {
-                classRenal = document.getElementById("r90to110").style.backgroundColor= 'red'; 
+                classRenal = document.getElementById("r90to110").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
             } else if (vancRenal >110) {
-                classRenal = document.getElementById("rOver110").style.backgroundColor= 'red'; 
-    }
+                classRenal = document.getElementById("rOver110").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
     
     }
     
-    //Reset the tables once input changed//
-        function resetTable() {
-    document.getElementsByTagName("TR").style.backgroundColor = "black";
-}
+    }
+    
+//     //Reset the tables once input changed//
+//         function resetTable() {
+//     document.getElementsByTagName("TR").style.backgroundColor = "black";
+// }
     
 
 
@@ -388,7 +392,6 @@
             maintDose();
             dosing_Advice();
             scrollWin();
-            resetTable();
         }
         
         
