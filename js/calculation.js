@@ -204,12 +204,14 @@
         
         
            var mDose;
+           var noText;
     function maintDose() {
             //get the input
          
             
              if (CRRT.checked) {
-                mDose = "A level will have to be taken every 24 hours. The maintenance dose will have to be held until the level is in range";
+                mDose = "A level will have to be taken every 24 hours. The maintenance dose will have to be held until the level is in range. This is becasue you have stated that the patientis on renal replacement therapy";
+                noText = document.getElementById("noText").style.display= 'none';
             } else if (vancRenal> 110.01) {
                 mDose = "1500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
             } else if (vancRenal >90 && vancRenal<= 110) {
@@ -230,10 +232,12 @@
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE every 24 hours. This includes the STAT dose";
             }
             
-            
+            if (CRRT.checked) {
+                document.getElementById("main_dose").innerHTML = "<b>" + mDose + "<b>"; 
+            } else{
             document.getElementById("main_dose").innerHTML = "Prescribe maintenance dose of " + "<b>" + mDose + "<b>";
         }
-        
+    }
         
         //Display dosing advice when calculate button clicked//
            function dosing_Advice() {
@@ -313,9 +317,12 @@
                 CrClCalc = "((140-age) * weight * 1.04)/creatinine";
         }
         
-
+        if (CRRT.checked) {
+                showFormulas.innerHTML = "The patient is a " + "<b>" + a.value + " year old " + gender + "." + "</b>" + " Their weight is " + "<b>" + w.value + "kg." + "</b>";
+            } else{
         showFormulas.innerHTML = "The patient is a " + "<b>" + a.value + " year old " + gender + "." + "</b>" + " Their weight is " + "<b>" + w.value + "kg." + "</b>"
         + "<br>" + "They are " + "<b>" + weightStatus + "</b>" + "<br>" + "You have entered a creatinine value of " + "<b>" + c.value + "µmol/L" + "</b>" + "<br>" + "The CrCl has been calculated as follows " + "<b>" + CrClCalc + "</b>";
+    }
     }
     
     var classChange; 
@@ -346,7 +353,7 @@
                 monitorFreq = document.getElementById("monitorFreqbad").style.backgroundColor= 'red';
             } else if (vancRenal >=0 && vancRenal <= 10) {
                 classRenal = document.getElementById("r0to10").style.backgroundColor= 'red';
-                 monitorFreq = document.getElementById("monitorFreqbad").style.backgroundColor= 'red';
+                monitorFreq = document.getElementById("monitorFreqbad").style.backgroundColor= 'red';
             } else if (vancRenal >10 && vancRenal<= 19.5) {
                 classRenal = document.getElementById("r10to19").style.backgroundColor= 'red'; 
                 monitorFreq = document.getElementById("monitorFreq").style.backgroundColor= 'red';
@@ -381,7 +388,12 @@
 //     document.getElementsByTagName("TR").style.backgroundColor = "black";
 // }
     
-
+function refreshTable () {
+            var textnode = document.createTextNode("newTable");
+            var refresh = document.getElementById("mainTable");
+            
+  refresh.replaceChild(textnode, refresh.mainTable);
+}
 
         function runCalcs() {
             dose();
@@ -392,6 +404,7 @@
             maintDose();
             dosing_Advice();
             scrollWin();
+            refreshTable();
         }
         
         

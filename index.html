@@ -29,7 +29,7 @@
 <!-- Form Name -->
 <legend><b>Adult</b> Vancomycin <b>initiation</b> tool</legend>
 <button class="d-none d-md-block d-lg-block col-md-4 btn btn-info btn-arrow-right" name="vancGuidline" type="button" 
-onclick="showGuideline();" >Display guideline on right of page</button>  
+onclick="showGuideline();" >Click to display guideline on right of page</button>  
 
 
 <!-- Parameters -->
@@ -59,9 +59,26 @@ onclick="showGuideline();" >Display guideline on right of page</button>
 <div class="form-group">
   <label class="col-md-4 control-label" for="indication"><b>Indication</b></label>  
   <div class="col-md-4">
-  <input id="ind" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md" required/>
+  <input id="ind" name="indication" type="text" autocomplete="off" placeholder="Specify" class="form-control input-md">
+  <div class="invalid-feedback">Please choose a username.</div>
   </div>
 </div>
+
+<!-- on CRRT -->
+<div>
+  <label class="col-md-4" for="renal"><b>On renal replacement therapy?</b></label>
+  <div class="col-md-4">
+   <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-outline-primary">
+    <input type="radio" name="CRRT" id="Yes" value="Yes"> Yes
+  </label>
+  <label class="btn btn-outline-danger">
+    <input type="radio" name="CRRT" id="No" value="No"> No
+  </label>
+</div>
+  </div>
+</div>
+<br>
 
 <!-- Gender -->
 <div class="form-group">
@@ -126,20 +143,6 @@ onclick="showGuideline();" >Display guideline on right of page</button>
   </div>
 </div>
 
-<!-- on CRRT -->
-<div>
-  <label class="col-md-4" for="renal"><b>On renal replacement therapy?</b></label>
-  <div class="col-md-4">
-   <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-outline-primary">
-    <input type="radio" name="CRRT" id="Yes" value="Yes"> Yes
-  </label>
-  <label class="btn btn-outline-danger">
-    <input type="radio" name="CRRT" id="No" value="No"> No
-  </label>
-</div>
-  </div>
-</div>
 
 <!-- Disclaimer-->
 <label class="col-md-4" id="disclaimer" style="color:red">
@@ -151,7 +154,7 @@ onclick="showGuideline();" >Display guideline on right of page</button>
   <label class="col-md-4 control-label" for="calculate"></label>
   <div class="col-md-4">
     <script type="text/javascript" src="js/calculation.js"></script>
-    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs();" >Display dose and monitoring advice</button>
+    <button id="calc" name="calculate" type="button" class="btn btn-primary" onclick="runCalcs();" >Click to display dose and monitoring advice</button>
   </div>
 </div>
 
@@ -163,9 +166,11 @@ onclick="showGuideline();" >Display guideline on right of page</button>
 <section class="col-md-4" id="dosingAdvice">
 <p id="indication" class="text">The indication for treatment is</p>
 <p id="stat_dose" class="text">Prescribe STAT dose of</p>
+<div id="noText">
 <p id="bmi_calc" class="text">The patient's BMI is</p>
 <p id="ibw_text" class="text">The patient's ideal body weight is</p>
 <p id="result_g" class="text">The CrCl =</p>
+</div>
 <p id="main_dose" class="text">Therefore prescribe</p>
 <p id="poor_renal"class="text">Do not wait for the result before giving the next scheduled dose unless CrCl < 10 ml/min
 or the patient is on renal replacement therapy</p>
@@ -174,7 +179,7 @@ or the patient is on renal replacement therapy</p>
 
 <!-- Explain Button -->
   <div>
-    <button id="explain" name="exp" type="button" class="btn btn-success" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Show dosing rationale</button>
+    <button id="explain" name="exp" type="button" class="btn btn-primary" onclick="displayReasoning(); highlightWtable(); highlightRtable(); explain(); scrollWin();" >Click to show dosing rationale</button>
   </div>
 </div>
 
@@ -227,7 +232,9 @@ or the patient is on renal replacement therapy</p>
 
 <h2>Maintenance dose</h2>
 
-<table class="col-md-4 table table-dark">
+<table table id="newTable"></table>
+
+<table table id="mainTable" class="col-md-4 table table-dark">
   <thead>
     <tr>
       <th scope="col">Creatinine clearence (mL/min)</th>
