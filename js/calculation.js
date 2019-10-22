@@ -5,12 +5,10 @@
     var c = window.document.getElementById('creatinine');
     var m = document.getElementById("male");
     var f = document.getElementById("female");
-    var normalweight = document.getElementById('normalweight');
-    // var abnormalWeight = document.getElementById('abnormalWeight');
+    var y = document.getElementById("yes");
+
     
-    console.log('connected');
-    
-    // this function displays the form when the checkbox is true
+// this function displays the form when the checkbox is true
     var checkbox = document.getElementById('showform');
     function displayForm() {
         var vancform = document.getElementById('vancform');
@@ -40,28 +38,20 @@
     }
  
 
-    // //this function displays the height box if abnormal weight is slected
-    // function displayHeight() {
-    //     var heightbox = document.getElementById('heightbox')
-    //     var bmiText = document.getElementById('bmi_calc')
-        
-    //     if (abnormalWeight.checked) {
-    //         heightbox.style.display = 'block';
-    //         bmiText.style.display = 'block';
-            
-    //     } else if (normalweight.checked) {
-    //         heightbox.style.display = 'none';
-    //         bmiText.style.display = 'none';
-    //     }
-    // }
-    
-    //indication statement
     function displayIndication() {
         var ind = document.getElementById('ind').value;
         return document.getElementById('indication').innerHTML = "The indication for treatment is " + "<b>" + ind + "<b>";
     }
     
-    //Date picker max date
+    function CRRTform() {
+        var shortForm
+    shortForm = document.getElementById("height").style.display= 'none';
+    shortForm = document.getElementById("datepicker").style.display= 'none';
+    shortForm = document.getElementById("age").style.display= 'none';
+    shortForm = document.getElementById("creatinine").style.display= 'none';
+    }
+    
+    //Sets date picker max date to today
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
@@ -77,54 +67,67 @@
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("datepicker").setAttribute("max", today);
     
+    //Sets date picker min date to minus 30 days
+    var today = new Date();
+    var mm1 = today.getMonth();
+    
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm1<10){
+        mm1='0'+mm1
+    } 
 
+    today = yyyy+'-'+mm1+'-'+dd;
+    document.getElementById("datepicker").setAttribute("min", today);
     
     
-        // Initial dose calculation
-        var vDose;
+    
+    // Initial dose calculation
+    var vDose;
         
-        function dose() {
-            //get the input
-            var weight = w.value;
+    function dose() {
+    //get the input
+    var weight = w.value;
             
-            if (isNaN(weight)) {
-                vDose = "<em>Weight</em>must be a number!";
-            } else if (weight < 40) {
-                vDose = "750"+"mg";
-            } else if (weight >=40 && weight<= 59) {
-                vDose = "1000"+"mg";
-            } else if (weight >=60 && weight<= 90) {
-                vDose = "1500"+"mg";
-            } else if (weight >90) {
-                vDose = "2000"+"mg";
-            }
-            document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + vDose + "<b>" ;
+    if (isNaN(weight)) {
+        vDose = "<em>Weight</em>must be a number!";
+        } else if (weight < 40) {
+            vDose = "750"+"mg";
+        } else if (weight >=40 && weight<= 59) {
+            vDose = "1000"+"mg";
+        } else if (weight >=60 && weight<= 90) {
+            vDose = "1500"+"mg";
+        } else if (weight >90) {
+            vDose = "2000"+"mg";
+        }
+    document.getElementById("stat_dose").innerHTML = "Prescribe STAT dose of " + "<b>" + vDose + "<b>" ;
         }        
         
     
-        //Calculate BMI
-        var bmi;
-        function calculateBmi() {
-            var weight = w.value;
-            var height = h.value;
+    //Calculate BMI
+    var bmi;
+    function calculateBmi() {
+    var weight = w.value;
+    var height = h.value;
             
-            if (isNaN(weight)) {
-                bmi = "<em>Weight</em>must be a number!";
-            }else if (isNaN(height)) {
-                bmi = "<em>Height</em>must be a number!";
-            }else {
-                bmi = (weight/(height/100*height/100)).toFixed(2);
+    if (isNaN(weight)) {
+            bmi = "<em>Weight</em>must be a number!";
+        }else if (isNaN(height)) {
+            bmi = "<em>Height</em>must be a number!";
+        }else {
+            bmi = (weight/(height/100*height/100)).toFixed(2);
         }
-            document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi +  "<b>";
+    document.getElementById("bmi_calc").innerHTML = "The patient's BMI is  " + "<b>" + bmi +  "<b>";
         }
         
         
         
-        // If overweight, calculate IBW
+    // If overweight, calculate IBW
                 var IBW;
-        function idealBodyWeight () {
-            var ibwText = document.getElementById("ibw_text")
-            var formula = 0.91 * (h.value - 152.4)
+    function idealBodyWeight () {
+    var ibwText = document.getElementById("ibw_text")
+    var formula = 0.91 * (h.value - 152.4)
             
            if (bmi > 25 && m.checked) {
                 IBW = (50 + formula).toFixed(2);
@@ -140,43 +143,6 @@
                 ibwText.innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "</b>";
         }
         
-        
-        
-        
-        // Crcl without gender or creatinine adjustment
-        // var CrCl0;
-        // var weight = w.value;
-        // var age = a.value;
-        // function creatClear() {
-        //     var creatinine = c.value;
-        //     //get age, weight, creatinie
-            
-        //     if (age < 18) {
-        //         CrCl0 = "<em>Age</em> cannot equal less than 18!";
-        //     } else if (isNaN(age)) {
-        //         CrCl0 = "<em>Age</em> must be a number!";
-        //     } else if (isNaN(weight)) {
-        //         CrCl0 = "<em>Weight</em> must be a number!";
-        //     } else if (isNaN(creatinine)) {
-        //         CrCl0 = "<em>Creatinine</em> must be a number!";
-        //     } else { 
-        //         CrCl0 = ((140-age)*weight);
-        //     }
-        // }
-        
-        // //CrCl with gender adjustment
-        // var genderCalc;
-        // function kidneygender(){
-        
-        // var male = m.checked;
-        // var female = f.checked;
-        //     if (male){
-        //         genderCalc = CrCl0 *1.23;
-        //     } else{
-        //         genderCalc = CrCl0 *1.04;
-        //     }
-        //     document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + (genderCalc/c.value).toFixed(2) + "</b>";
-        // }
         
         var vancRenal;
         function vancCrcl() {
@@ -210,8 +176,8 @@
          
             
              if (CRRT.checked) {
-                mDose = "A level will have to be taken every 24 hours. The maintenance dose will have to be held until the level is in range. This is becasue you have stated that the patientis on renal replacement therapy";
-                noText = document.getElementById("noText").style.display= 'none';
+                mDose = "A level will have to be taken every 24 hours. The maintenance dose will have to be held until the level is in range. This is becasue you have stated that the patient is on renal replacement therapy";
+                noText = document.getElementById("noText").style.display= 'none'
             } else if (vancRenal> 110.01) {
                 mDose = "1500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
             } else if (vancRenal >90 && vancRenal<= 110) {
@@ -255,7 +221,7 @@
         
          if (checkbox.checked) {
             disclaimer.style.display = 'block';
-        } else if (checkbox.unchecked){
+        } else {
             disclaimer.style.display = 'none';
         }
     }
@@ -291,7 +257,7 @@
             gender = "female"
         }
         
-        if (bmi >25) {
+        if (bmi >=25) {
             weightStatus = "overweight, therefore their ideal body weight has been calculated as " + IBW + "kg" + " and used in the CrCl formula"
         } else if (bmi <18.5) {
             weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
@@ -299,9 +265,9 @@
             weightStatus ="of normal weight, therefore no adjustment to creatinine clearence is required."
         }
         
-        if (bmi >25 && m.checked){
+        if (bmi >=25 && m.checked){
                 CrClCalc = "((140-age)* IBW * 1.23)/creatinine";
-            }else if (bmi >25 && f.checked){
+            }else if (bmi >=25 && f.checked){
                 CrClCalc = "((140-age)* IBW * 1.04)/creatinine";
             }else if  (bmi <18.5 && m.checked){
                 CrClCalc = "(((140-age) * weight * 1.23)/creatinine) * 0.69";
@@ -310,10 +276,6 @@
             }else if  (bmi >18.5 && bmi <25 && m.checked){
                 CrClCalc = "((140-age) * weight * 1.23)/creatinine";
             }else if (bmi >18.5 && bmi <25 && f.checked){
-                CrClCalc = "((140-age) * weight * 1.04)/creatinine";
-            }else if (normalweight.checked && m.checked){
-                CrClCalc = "((140-age) * weight * 1.23)/creatinine";
-            }else if (normalweight.checked && f.checked){
                 CrClCalc = "((140-age) * weight * 1.04)/creatinine";
         }
         
@@ -388,12 +350,12 @@
 //     document.getElementsByTagName("TR").style.backgroundColor = "black";
 // }
     
-function refreshTable () {
-            var textnode = document.createTextNode("newTable");
-            var refresh = document.getElementById("mainTable");
+// function refreshTable () {
+//             var textnode = document.createTextNode("newTable");
+//             var refresh = document.getElementById("mainTable");
             
-  refresh.replaceChild(textnode, refresh.mainTable);
-}
+//   refresh.replaceChild(textnode, refresh.mainTable);
+// }
 
         function runCalcs() {
             dose();
@@ -404,7 +366,7 @@ function refreshTable () {
             maintDose();
             dosing_Advice();
             scrollWin();
-            refreshTable();
+            CRRTform();
         }
         
         

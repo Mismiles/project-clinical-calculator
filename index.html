@@ -70,10 +70,10 @@ onclick="showGuideline();" >Click to display guideline on right of page</button>
   <div class="col-md-4">
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-outline-primary">
-    <input type="radio" name="CRRT" id="Yes" value="Yes"> Yes
+    <input type="radio" name="CRRT" id="Yes" value="Yes" onclick="CRRTform();"> Yes
   </label>
   <label class="btn btn-outline-danger">
-    <input type="radio" name="CRRT" id="No" value="No"> No
+    <input type="radio" name="CRRT" id="No" value="No" onclick="CRRTform();"> No
   </label>
 </div>
   </div>
@@ -107,7 +107,7 @@ onclick="showGuideline();" >Click to display guideline on right of page</button>
 
 <!-- Weight-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="weight"><b>Weight in kg</b></label>
+  <label class="col-md-4 control-label" for="weight"><b>Weight in kg (round to nearest kg)</b></label>
   <div class="col-md-4">
   <input id="weight" name="weight" type="text" maxlength="3" placeholder="Weight in kg" autocomplete="off" class="form-control input-md" required/>
 </div>
@@ -126,12 +126,12 @@ onclick="showGuideline();" >Click to display guideline on right of page</button>
 </div>
 
 <!-- Height-->
-<section id="heightbox" class="form-group">
-  <label class="col-md-4 control-label" for="height"><b>Height in cm</b></label>  
+<div class="form-group">
+  <label class="col-md-4 control-label" for="height"><b>Height in cm (round to nearest cm)</b></label>  
   <div class="col-md-4">
   <input id="height" name="height" type="text" maxlength="3" autocomplete="off" placeholder="Height in cm" class="form-control input-md" required/>
 </div>
-</section>
+</div>
 
 <p id="heightOut"></p>
 
@@ -187,7 +187,7 @@ or the patient is on renal replacement therapy</p>
 
 <br>
 
-<section class="col-md-4" id="explainDosing"
+<section class="col-md-4" id="explainDosing">
 <!--Show formulas -->
 <div id="showFormulas"></div>
 
@@ -311,7 +311,7 @@ or the patient is on renal replacement therapy</p>
     </tr>
   </tbody>
 </table>
-
+</section>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

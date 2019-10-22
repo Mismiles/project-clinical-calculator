@@ -85,12 +85,15 @@ legend {
  border-color: green;
  right: 10px;
   }
-  
- 
+
   
  .showform {
      color: blue;
  }
+
+#hideCRRT{
+    display: block;
+}
 
 #heightbox{
   display: block;
