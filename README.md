@@ -1,32 +1,109 @@
-# Your Project's Name
+Vancomycin initiation tool
 
-The project aims to make a complex intravenous drug caulation safer, simpler and more effecient. Vancoymcyin is an antibiotic used to treat severe infections. This project aims to build a calculation tool to make the drug safer to prescribe.
-There have been many errors as a result of intravenous vancomycin prescribing. These have occurred due to the complexity of the caulations involved in prescribing the drug, the monitoring required and the complexity in the type of patients' who will have this drug prescribed. 
-The aim is to build a form and combine it with javascript to output safe recommendations. The second aim is to allow for this data to be auidited, by sending the prescribing data to a specified email address.
+The project aims to make a complex intravenous drug caulation safer, simpler and more effecient. 
+Vancoymcyin is an antibiotic used to treat severe infections. This project aims to build a calculation 
+tool to make the drug safer to prescribe via the intravenous route.
+There have been many errors as a result of intravenous vancomycin prescribing. These have occurred due 
+to the complexity of the caulations involved in prescribing the drug, the monitoring required and the 
+complexity in the type of patients' who will have this drug prescribed. 
+The aim is to build a form and combine it with javascript to output safe recommendations. 
  
 ## UX
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+The wedbsite has two main target audiences. The first is doctors who will prescribe the drug for use on patients.
+The second is pharamcists who will use this tool to check the appropriateness of the prescribed medication. 
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+In practice, prescribing vancomycin involves reffering to a guidline. Using this, a doctor will have to then 
+obtain some parameters. 
+These include; the patient's gender, age, weight, height, serum creatinine (from a blood test).
+If the pateint is on renal replacement therapy, only their weight will need to be obtained.
+Using these parameters, the pateint's BMI will need to be calculated to determine whether they are underweight, 
+of normal weight or overweight. 
+If they are not of normal weight, their ideal bodyweight will have to be calculated.
+Using this information, their kidney function will have to be calculated.
+From this kidney function value, their dose, frequency of administraetion and monitoring times are calculated.
+
+Before starting the project, an observation was undertakin to seee how an expereinced doctor undertook this process. 
+It seemed a lot of screen switching was undertakin to obtain data about the pateint. Then, many websites were accessed
+to help calculate the BMI, ideal bodyweight and also their creatinine clearence (kidney function).
+The doctor would then have to refer back to the guideline using these value to determine the first dose, the next doses
+and how to monitor the drug.
+Whist this was being undertaken, the doctor was interrupted several times. This increased the time taken to obtain the
+correct dose and also increased the likelhood of error. 
+The process took around 10-15 minutes to complete.
+
+The project aims to reduce error, time and duplication of work by providing an interactive form that doctors will fill 
+out.
+
+As a doctor prescribing vancomycin, I want to have the ability to effeciently prescribe the correct dose of vancomycin, 
+the correct frequency and monitor the drug safely. 
+
+As a pharmacict, I want to be able to check a doctor's prescription of vancomycin and ensure it is safely monitored. 
+
+As a medical student, I want to be able to appreciate complexity of varaibles required to presecribe vancomycin 
+correctly.
+
+>>>>>>>>>>><<<<<<<<<<
+
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the 
+design process. These files should themselves either be included in the project itself (in an separate directory), or just 
+hosted elsewhere online and can be in any format that is viewable inside the browser.
+
+>>>>>>>>>>><<<<<<<<<<
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
+Once loading the page, a disclaimer appears. This is to ensure that the user cannot use the tool to calculate doses 
+for patient's outside of this creteria.
+
+If the user wishes to view the hospital guideline (on desktop only), they can have it adjacent to the form by clicking 
+"click to display guideline on right of page."
+
+The user can then click "none of the above apply (click to use tool)" as a safety button which then brings up the tool.
+
+The indication is placed to force the user to specify why vancomycin is being used.
+
+The "on renal replacement therapy?" question is placed as if the patient is on renal replacement therapy, 
+then only their weight and the date this was taken will be required.
+
+If the pateint is not on renal replacement therapy, their gender, age, weight, the date their weight was taken, their
+height and serum creatinine will need to be entered in order to allow the tool to calculate the pateint's renal
+function, the correct dose and how often to monitor the patient.
+
+There is a 30 day limit on the calendar to prompt the user to obtain a recent weight.
+
+The "I confirm that this tool takes no clinical responsibility for outcomes and I will use this tool only 
+to aid my ultimate clinical decision" button is placed to prompt the user that ultimately the prescribing decision is theirs
+and that this tool will only aid that decision.
+
+The "click to display dose and monitoring advice" takes into account all inputted factors to give a dose. It does this
+by calculating the patient's body mass index (BMI), ideal bodyweight, their renal function (CrCl) and uses their weight 
+to advise on the initial (STAT) dose.
+
+The next feature "click to show dosing rationale" explains to the usuer why the outputs were generate and also shows 
+(by highlighting dosing and monitoring tables) where the dosing and monitoring advice is obtianed from. 
+
+
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+The first feature (the guideline) allows the user to reference the guidleine for prescribing advice.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+The next feature (the form) prompts the user to collect all data required to process the form safely and effectively.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+The calendar has a safety limit of 30 days to prompt the user to input a recent weight.
+
+The dosing advice section then takes all the information and displays the appropriate dose and monitoring to undertake.
+
+The explain rationale section then breaks down why the dose and monitoring advise was chosen.
 
 ### Features Left to Implement
-- Another feature idea
+Another feature idea for the future could be to obtain all the input values and email them to an email address. This could then
+be used to audit prescribing.
+
+Additionally, this could be used to prompt a pharamcist who has access to this email to contact colleagues looking after the patient
+that they have a pateint who is on vancomycin
+
+
+>>>>>>>>>>><<<<<<<<<<
 
 ## Technologies Used
 
@@ -78,4 +155,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- My colleague and consultant antimicrobial pharamcist Ai-Nee Lim who was pivotal in the design of
+the vancomycin antimicrobial guideline.
+- My colleague Dr Nitzan Lindenberg who took his time to aid in the initiation step of building this tool
+and providing contructive feedback throughout.

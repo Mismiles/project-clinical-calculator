@@ -43,13 +43,13 @@
         return document.getElementById('indication').innerHTML = "The indication for treatment is " + "<b>" + ind + "<b>";
     }
     
-    function CRRTform() {
-        var shortForm
-    shortForm = document.getElementById("height").style.display= 'none';
-    shortForm = document.getElementById("datepicker").style.display= 'none';
-    shortForm = document.getElementById("age").style.display= 'none';
-    shortForm = document.getElementById("creatinine").style.display= 'none';
-    }
+    // function CRRTform() {
+    //     var shortForm
+    // shortForm = document.getElementById("height").style.display= 'none';
+    // shortForm = document.getElementById("datepicker").style.display= 'none';
+    // shortForm = document.getElementById("age").style.display= 'none';
+    // shortForm = document.getElementById("creatinine").style.display= 'none';
+    // }
     
     //Sets date picker max date to today
     var today = new Date();
@@ -180,19 +180,19 @@
                 noText = document.getElementById("noText").style.display= 'none'
             } else if (vancRenal> 110.01) {
                 mDose = "1500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >90 && vancRenal<= 110) {
+            } else if (vancRenal >=89.50 && vancRenal<= 110) {
                 mDose = "1250"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=75 && vancRenal<= 89.99) {
+            } else if (vancRenal >=74.50 && vancRenal<= 89.49) {
                 mDose = "1000"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >=55 && vancRenal<= 74.99) {
+            } else if (vancRenal >=54.50 && vancRenal<= 74.49) {
                 mDose = "750"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >40 && vancRenal<= 54.99) {
+            } else if (vancRenal >=39.50 && vancRenal<= 54.49) {
                 mDose = "500"+"mg"+" every 12 hours," + " request a drug level on ICE and JAC before the 4th dose. This includes the STAT dose";
-            } else if (vancRenal >30 && vancRenal<= 39.99) {
+            } else if (vancRenal >=29.50 && vancRenal<= 39.49) {
                 mDose = "750"+"mg"+" every 24 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
-            } else if (vancRenal >20 && vancRenal<= 29.99) {
-                mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
-            } else if (vancRenal >=10 && vancRenal<= 20) {
+            } else if (vancRenal >=19.50 && vancRenal<= 29.49) {
+                mDose = "500"+"mg"+" every 24 hours," + " request a drug level on ICE and JAC before the 3rd dose. This includes the STAT dose";
+            } else if (vancRenal >=10 && vancRenal<= 19.49) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE and JAC before the 2nd dose. This includes the STAT dose";
             } else if (vancRenal <=10) {
                 mDose = "500"+"mg"+" every 48 hours," + " request a drug level on ICE every 24 hours. This includes the STAT dose";
@@ -366,7 +366,7 @@
             maintDose();
             dosing_Advice();
             scrollWin();
-            CRRTform();
+            // CRRTform();
         }
         
         
