@@ -38,7 +38,7 @@ out.
 As a doctor prescribing vancomycin, I want to have the ability to effeciently prescribe the correct dose of vancomycin, 
 the correct frequency and monitor the drug safely. 
 
-As a pharmacict, I want to be able to check a doctor's prescription of vancomycin and ensure it is safely monitored. 
+As a pharmacist, I want to be able to check a doctor's prescription of vancomycin and ensure it is safely monitored. 
 
 As a medical student, I want to be able to appreciate complexity of varaibles required to presecribe vancomycin 
 correctly.
@@ -104,8 +104,6 @@ that they have a pateint who is on vancomycin.
 A form validation function can be added to prompt the user to fill fields that have been missed.
 
 
-
-
 ## Technologies Used
 
 The technologies used include:
@@ -126,6 +124,9 @@ The technologies used include:
 
 
 ## Testing
+
+
+
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works 
 well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as 
