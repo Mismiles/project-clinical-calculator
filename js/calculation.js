@@ -43,14 +43,7 @@
         return document.getElementById('indication').innerHTML = "The indication for treatment is " + "<b>" + ind + "<b>";
     }
     
-    // function CRRTform() {
-    //     var shortForm
-    // shortForm = document.getElementById("height").style.display= 'none';
-    // shortForm = document.getElementById("datepicker").style.display= 'none';
-    // shortForm = document.getElementById("age").style.display= 'none';
-    // shortForm = document.getElementById("creatinine").style.display= 'none';
-    // }
-    
+
     //Sets date picker max date to today
     var today = new Date();
     var dd = today.getDate();

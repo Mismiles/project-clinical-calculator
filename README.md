@@ -63,10 +63,9 @@ The user can then click "none of the above apply (click to use tool)" as a safet
 
 The indication is placed to force the user to specify why vancomycin is being used.
 
-The "on renal replacement therapy?" question is placed as if the patient is on renal replacement therapy, 
-then only their weight and the date this was taken will be required.
+The "on renal replacement therapy?" question is placed to specify if the patient is on dialysis.
 
-If the pateint is not on renal replacement therapy, their gender, age, weight, the date their weight was taken, their
+The pateint's gender, age, weight, the date their weight was taken, their
 height and serum creatinine will need to be entered in order to allow the tool to calculate the pateint's renal
 function, the correct dose and how often to monitor the patient.
 
@@ -89,7 +88,7 @@ The first feature (the guideline) allows the user to reference the guidleine for
 
 The next feature (the form) prompts the user to collect all data required to process the form safely and effectively.
 
-The calendar has a safety limit of 30 days to prompt the user to input a recent weight.
+The calendar has a safety limit of 30 days to prompt the user to input a recent weight so that an old weight is not used.
 
 The dosing advice section then takes all the information and displays the appropriate dose and monitoring to undertake.
 
@@ -100,14 +99,27 @@ Another feature idea for the future could be to obtain all the input values and 
 be used to audit prescribing.
 
 Additionally, this could be used to prompt a pharamcist who has access to this email to contact colleagues looking after the patient
-that they have a pateint who is on vancomycin
+that they have a pateint who is on vancomycin.
+
+A form validation function can be added to prompt the user to fill fields that have been missed.
 
 
->>>>>>>>>>><<<<<<<<<<
+
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+The technologies used include:
+
+- [Html]
+
+- [CSS]
+
+- [Bootstrap] (https://getbootstrap.com/)
+
+- [Vanilla Javascript] 
+    - This project uses javascript to add functionally. Additionally it uses Javascript to calculate 
+    ideal body weight, body mass index, creatinine clearence (kidney function), the initial dose of vancomycin, 
+    the maintenace dose of vancomycin and the frequency of monitoring of the drug.
 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
@@ -115,11 +127,15 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works 
+well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as 
+intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the
+test file(s) and explain how to run them.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly 
+useful form for describing your testing process is via scenarios, such as:
 
 1. Contact form:
     1. Go to the "Contact Us" page
@@ -129,7 +145,8 @@ For any scenarios that have not been automated, test the user stories manually a
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't 
+addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
