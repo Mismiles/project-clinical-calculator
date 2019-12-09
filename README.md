@@ -28,7 +28,7 @@ It seemed a lot of screen switching was undertakin to obtain data about the pate
 to help calculate the BMI, ideal bodyweight and also their creatinine clearence (kidney function).
 The doctor would then have to refer back to the guideline using these value to determine the first dose, the next doses
 and how to monitor the drug.
-Whist this was being undertaken, the doctor was interrupted several times. This increased the time taken to obtain the
+Whilst this was being undertaken, the doctor was interrupted several times. This increased the time taken to obtain the
 correct dose and also increased the likelhood of error. 
 The process took around 10-15 minutes to complete.
 
@@ -59,6 +59,9 @@ for patient's outside of this creteria.
 If the user wishes to view the hospital guideline (on desktop only), they can have it adjacent to the form by clicking 
 "click to display guideline on right of page."
 
+The guideline is fixed as the user goes through the tool to allow them to refer to it at any time. 
+This is done without either side of the webpage interfering with the user experience.
+
 The user can then click "none of the above apply (click to use tool)" as a safety button which then brings up the tool.
 
 The indication is placed to force the user to specify why vancomycin is being used.
@@ -81,6 +84,9 @@ to advise on the initial (STAT) dose.
 
 The next feature "click to show dosing rationale" explains to the usuer why the outputs were generate and also shows 
 (by highlighting dosing and monitoring tables) where the dosing and monitoring advice is obtianed from. 
+
+To ensure scrolling is minimised, a function to scroll has been added when clicking the disclaimer, 
+calculate dose button and show dosing rationale button.
 
 
 ### Existing Features
@@ -109,22 +115,23 @@ A form validation function can be added to prompt the user to fill fields that h
 The technologies used include:
 
 - [Html]
+The basis of the project was made using HTML
 
 - [CSS]
+CSS was used to add styles on top of Bootstrap
 
 - [Bootstrap] (https://getbootstrap.com/)
+Bootstrap was used for sytling, the form and formating positioning.
 
 - [Vanilla Javascript] 
-    - This project uses javascript to add functionally. Additionally it uses Javascript to calculate 
-    ideal body weight, body mass index, creatinine clearence (kidney function), the initial dose of vancomycin, 
-    the maintenace dose of vancomycin and the frequency of monitoring of the drug.
+This project uses javascript to add functionally. Additionally it uses Javascript to calculate 
+ideal body weight, body mass index, creatinine clearence (kidney function), the initial dose of vancomycin, 
+the maintenace dose of vancomycin and the frequency of monitoring of the drug.
 
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
-
+The project uses **JQuery** to simplify DOM manipulation. In this project, it was only used for the bootrap features.
 
 ## Testing
-
 
 
 
@@ -169,11 +176,12 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
 ### Media
-- The photos used in this site were obtained from ...
+- PDF from this document was taken from a local hospital guidline, obtained from the whittington health
+intranet page
 
 ### Acknowledgements
-
 - My colleague and consultant antimicrobial pharamcist Ai-Nee Lim who was pivotal in the design of
 the vancomycin antimicrobial guideline.
 - My colleague Dr Nitzan Lindenberg who took his time to aid in the initiation step of building this tool
 and providing contructive feedback throughout.
+- My colleagues Anja Ritchter, Patricia McCormick, Chandni Kanderia, 
