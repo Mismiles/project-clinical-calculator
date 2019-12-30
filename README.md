@@ -1,4 +1,4 @@
-Vancomycin initiation tool
+## Vancoymcyin initiation tool
 
 The project aims to make a complex intravenous drug calculation safer, simpler and more efficient. 
 Vancoymcyin is an antibiotic used to treat severe infections. This project aims to build a calculation 
