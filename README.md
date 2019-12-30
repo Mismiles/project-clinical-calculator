@@ -165,6 +165,7 @@ To run the project, simply go to https://mismiles.github.io/project-clinical-cal
 ## Credits
 
 ### Content
+- The top clickable arrow to show the guideline was adapted from http://code-chunk.com/chunks/543df4c394758/bootstrap-arrow-shaped-buttons
 - The code for the calendar was obtianed from https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today 
 . This was then adapted to display the minimum date (30 days prior).
 - The scrollby function was obtained from https://www.w3schools.com/jsref/met_win_scrollby.asp and then adapted.
