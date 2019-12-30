@@ -132,6 +132,8 @@ The project uses **JQuery** to simplify DOM manipulation. In this project, it wa
 
 ## Testing
 
+The code was tested using jshint.com. No major issues were identified.
+
 The tool was tested on both mobile and desktop screens.
 
 As the aim is for the tool to be implemented in a clinical setting and for screen switching to be minimised as much as possible.
