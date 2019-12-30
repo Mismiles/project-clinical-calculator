@@ -53,7 +53,7 @@ https://drive.google.com/file/d/1fpjlTmFjG2F_fiG67_HgJ0i6IJcptLUw/view?usp=shari
 ## Features
 
 Once loading the page, a disclaimer appears. This is to ensure that the user cannot use the tool to calculate doses 
-for patient's outside of this criteria.
+for patients outside of this criteria.
 
 If the user wishes to view the hospital guideline (on desktop only), they can have it adjacent to the form by clicking 
 "click to display guideline on right of page."
