@@ -122,15 +122,15 @@ function idealBodyWeight () {
 var ibwText = document.getElementById("ibw_text")
 var formula = 0.91 * (h.value - 152.4)
             
-       if (bmi > 25 && m.checked) {
+       if (bmi >= 25.01 && m.checked) {
             IBW = (50 + formula).toFixed(2);
       
         } 
-        else if (bmi > 25 && f.checked) {
+        else if (bmi >= 25.01 && f.checked) {
         IBW = (45 + formula).toFixed(2);
            
          }
-        else if (bmi < 25) {
+        else if (bmi <= 24.99) {
         ibwText.style.display = 'none';
          }
         ibwText.innerHTML = "The patient's Ideal body weight is  " + "<b>" + IBW + "kg" + "</b>";
@@ -145,17 +145,17 @@ var creatinine = c.value;
 var weight = w.value;
 var age = a.value;
         
-    if (bmi >25 && male){
+    if (bmi >=25.01 && male){
         vancRenal = ((140-age)* IBW * 1.23)/creatinine;
-    }else if (bmi >25 && female){
+    }else if (bmi >=25.01 && female){
         vancRenal = ((140-age)* IBW * 1.04)/creatinine;
-    }else if  (bmi <18.5 && male){
+    }else if  (bmi <=18.49 && male){
         vancRenal = (((140-age)* weight * 1.23)/creatinine)*0.69;
-    }else if (bmi <18.5 && female){
+    }else if (bmi <=18.49 && female){
         vancRenal = (((140-age)* weight * 1.04)/creatinine)*0.69;
-    }else if (male && bmi <25 && bmi >18.5){
+    }else if (male && bmi <=25.01 && bmi >=18.5){
         vancRenal = ((140-age)* weight * 1.23)/creatinine;
-    }else if (female && bmi <25 && bmi >18.5){
+    }else if (female && bmi <=25.01 && bmi >=18.5){
         vancRenal = ((140-age)* weight * 1.04/creatinine);
     }
     document.getElementById("result_g").innerHTML = "The CrCl =  " + "<b>" + vancRenal.toFixed(2) + "ml" +"/min" + "</b>";
@@ -249,25 +249,25 @@ var bmiFormula = "weight/(height in m)²"
         gender = "female"
     }
         
-    if (bmi >=25) {
+    if (bmi >=25.01) {
         weightStatus = "overweight, therefore their ideal body weight has been calculated as " + IBW + "kg" + " and used in the CrCl formula"
-    } else if (bmi <18.5) {
+    } else if (bmi <=18.49) {
         weightStatus = "underweight, therefore their creatinine clearence has been adjusted by multiplying the result by 0.69."
     } else {
         weightStatus ="of normal weight, therefore no adjustment to creatinine clearence is required."
     }
         
-    if (bmi >=25 && m.checked){
+    if (bmi >=25.01 && m.checked){
             CrClCalc = "((140-age)* IBW * 1.23)/creatinine";
-    }else if (bmi >=25 && f.checked){
+    }else if (bmi >=25.01 && f.checked){
             CrClCalc = "((140-age)* IBW * 1.04)/creatinine";
-        }else if  (bmi <18.5 && m.checked){
+        }else if  (bmi <=18.49 && m.checked){
             CrClCalc = "(((140-age) * weight * 1.23)/creatinine) * 0.69";
-        }else if (bmi <18.5 && f.checked){
+        }else if (bmi <=18.49 && f.checked){
             CrClCalc = "(((140-age) * weight * 1.04)/creatinine) * 0.69";
-        }else if  (bmi >18.5 && bmi <25 && m.checked){
+        }else if  (bmi >=18.49 && bmi <=25.01 && m.checked){
             CrClCalc = "((140-age) * weight * 1.23)/creatinine";
-        }else if (bmi >18.5 && bmi <25 && f.checked){
+        }else if (bmi >=18.49 && bmi <=25.01 && f.checked){
             CrClCalc = "((140-age) * weight * 1.04)/creatinine";
     }
         
@@ -347,5 +347,3 @@ function runCalcs() {
         dosing_Advice();
         scrollWin();
 }
-        
-        
